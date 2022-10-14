@@ -1,0 +1,40 @@
+.nav {
+    width: 1440px;
+    margin: 0 auto;
+    border-top: 1px solid #5C6168;
+    background-color: #292E36;
+    &_container {
+        display: flex;
+        height: 80px;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 20px;
+    }
+    &_menu {
+        display: flex;
+        a {
+            text-decoration: none;
+            color: #fff;
+            font-family: 'Josefin Sans';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 20px;
+            line-height: 30px;
+            letter-spacing: 1px;
+            margin-right: 60px;
+            transition: .5s ease;
+            cursor: pointer;
+            &:hover {
+                color: #E1B168;
+                font-weight: 500;
+                transition: .5s ease;
+            }
+        }
+    }
+    &_profiles {
+        display: flex;
+        div {
+            margin-right: 24px;
+        }
+    }
+}

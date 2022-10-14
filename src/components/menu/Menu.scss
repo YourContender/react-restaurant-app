@@ -1,0 +1,84 @@
+.menu {
+    display: flex;
+    justify-content: center;
+    background-color: #fff;
+    padding-top: 50px;
+    &_child {
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+    &_descr {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 20px;
+        &_container {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+    }
+    &_target {
+        margin-right: 100px;
+        h4 {
+            font-family: 'Cormorant Infant';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 40px;
+            line-height: 56px;
+            letter-spacing: 2px;
+            color: #292E36;
+            margin: 0;
+            margin-bottom: 20px;
+        }
+        span {
+            font-family: 'Josefin Sans';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 20px;
+            line-height: 30px;
+            letter-spacing: 1px;
+            color: #555555;
+        }
+        img {
+            margin-top: 30px;
+            width: 250px;
+        }
+    }
+    &_container {
+        min-width: 600px;
+        h4 {
+            font-family: 'Cormorant Infant';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 40px;
+            line-height: 56px;
+            letter-spacing: 2px;
+            color: #292E36;
+            margin: 0;
+            margin-bottom: 20px;
+            text-decoration: underline;
+        }
+        span {
+            margin-left: 20px;
+            font-family: 'Cormorant Infant';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 24px;
+            line-height: 42px;
+            letter-spacing: 2px;
+            color: #292E36;
+        }
+        p {
+            margin-left: 20px;
+            font-family: 'Josefin Sans';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 20px;
+            line-height: 30px;
+            letter-spacing: 0.2px;
+            color: #555555;
+            margin-top: 0;
+        }
+    }
+}

@@ -1,0 +1,57 @@
+.promo {
+    &_container {
+        width: 1440px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        margin-top: 10px;
+        background-color: #292E36;
+    }
+    &_title {
+        font-family: 'Josefin Sans';
+        color: #fff;
+        font-style: normal;
+        font-weight: 400;
+        padding-left: 40px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        h1 {
+            font-size: 75px;
+            font-weight: 300;
+            line-height: 70px;
+            letter-spacing: 2px;
+        }
+        span {
+            font-size: 20px;
+            line-height: 30px;
+            letter-spacing: 0.2px;
+            margin-bottom: 35px;
+        }
+        button {
+            background-color: #292E36;
+            font-family: 'Josefin Sans';
+            font-weight: 400;
+            font-size: 24px;
+            line-height: 33px;
+            letter-spacing: 1px;
+            width: 295px;
+            height: 75px;
+            color: #fff;
+            transition: .5s ease;
+            border: 2px solid #E1B168;
+            border-radius: 2px;
+            &:hover {
+                background-color: #E1B168;
+                color: #292E36;
+                transition: .5s ease;
+            }
+        }
+    }
+    &_image {
+        padding-right: 40px;
+        img {
+            width: 600px;
+        }
+    }
+}
