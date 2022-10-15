@@ -1,4 +1,5 @@
 import image from '../../img/Frame.png';
+import { Link } from 'react-router-dom';
 import './Promo.scss';
 
 const Promo = () => {
@@ -13,7 +14,11 @@ const Promo = () => {
                 </span>
                 
                 <div>
-                    <button>View menu</button>
+                    <Link to="/menu">
+                        <button>
+                            View menu
+                        </button>
+                    </Link>
                 </div>
             </div>
 

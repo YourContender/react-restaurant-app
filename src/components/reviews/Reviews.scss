@@ -1,0 +1,109 @@
+.reviews {
+    width: 1440px;
+    color: #fff;
+    margin: 100px auto;
+    padding: 0 10px;
+    &_slider {
+        display: flex;
+    }
+    &_container {
+        width: 500px;
+        background-color: #343942;
+        margin-left: 20px;
+        margin-top: 40px;
+    }
+    &_first {
+        margin-left: 0;
+    }
+    &_subtitle {
+        // width: 70px;
+        span {
+            border-top: 2px solid #E1B168;
+            border-bottom: 2px solid #E1B168;
+            padding: 4px 0;
+            text-transform: uppercase;
+            font-family: 'Josefin Sans';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 15px;
+            line-height: 22px;
+            letter-spacing: 3px;
+        }
+    }
+    &_descr {
+        font-family: 'Josefin Sans';
+        font-style: normal;
+        font-weight: 300;
+        font-size: 20px;
+        line-height: 30px;
+        letter-spacing: 2px;
+    }
+    h2 {
+        font-family: 'Cormorant Infant';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 40px;
+        line-height: 56px;
+        letter-spacing: 2px;
+        margin: 0;
+        margin-top: 20px;
+    }
+    &_line {
+        width: 80%;
+        height: 2px;
+        background-color: #797E89;
+        margin: 30px auto;
+    }
+    &_user {
+        display: flex;
+        padding-left: 40px;
+        align-items: center;
+        // margin-top: 40px;
+        h3 {
+            font-family: 'Cormorant Infant';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 30px;
+            line-height: 42px;
+            letter-spacing: 2px;
+            margin: 0;
+        }
+        span {
+            color: #E1B168;
+            font-family: 'Josefin Sans';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 30px;
+            letter-spacing: 0.2px;
+        }
+        img {
+            margin-right: 30px;
+        }
+    }
+    &_descr {
+        text-align: center;
+        padding: 5px 10px;
+    }
+    &_bg {
+        margin-top: 40px;
+        opacity: .5;
+        text-align: center;
+        position: relative;
+        img {
+            width: 95%;
+            height: 600px;
+        }
+    }
+    &_welcome {
+        position: absolute;
+        top: 35%;
+        transform: translateY(-50%);
+        left: 50%;
+        transform: translateX(-50%);
+        h1 {
+            font-size: 72px;
+            letter-spacing: 4px;
+        }
+    }
+}
