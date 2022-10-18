@@ -23,7 +23,7 @@ const Nav = () => {
                         <Link to="/dishes">Popular Dishes</Link>
                     </div>
                     <div>
-                        <a href="#">Blog</a>
+                        <Link to="/blog">Blog</Link>
                     </div>
                     <div>
                         <a href="#">Contact Us</a>

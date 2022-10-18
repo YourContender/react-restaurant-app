@@ -4,6 +4,7 @@ import HomePage from './pages/HomePage';
 import MenuPage from './pages/MenuPage';
 import PopularDishesPage from './pages/PopularDishesPage';
 import './App.scss';
+import BlogPage from './pages/BlogPages';
 
 function App() {
     return (
@@ -13,6 +14,7 @@ function App() {
                 <Route path="/about" element={<AboutPage />}/>
                 <Route path="/menu" element={<MenuPage />}/>
                 <Route path="/dishes" element={<PopularDishesPage />}/>
+                <Route path="/blog" element={<BlogPage />}/>
             </Routes>
         </div>
     )
