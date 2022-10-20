@@ -1,4 +1,5 @@
 import logo from '../../img/IMAGE.png';
+import { Link } from 'react-router-dom';
 import './Header.scss';
 
 const Header = () => {
@@ -8,11 +9,15 @@ const Header = () => {
                 <div className="header_phone">
                     <button>Call - 123 456 789</button>
                 </div>
+                
                 <div className="header_logo">
                     <img src={logo} alt="logo" />
                 </div>
+
                 <div className="header_reservation">
-                    <button>Reservation</button>
+                    <Link to="/reservation">
+                        <button>Reservation</button>
+                    </Link>
                 </div>
             </div>
         </div>
