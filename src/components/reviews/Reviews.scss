@@ -3,14 +3,19 @@
     color: #fff;
     margin: 100px auto;
     padding: 0 10px;
-    &_slider {
-        display: flex;
-    }
-    &_container {
-        width: 500px;
+    &_page {
+        width: 450px;
+        margin-left: 20px;
         background-color: #343942;
+        border: 1px solid #000;
+    }
+    &_slider {
+        // width: 500px;
         margin-left: 20px;
         margin-top: 40px;
+        &_pages {
+            display: flex;
+        }
     }
     &_first {
         margin-left: 0;
