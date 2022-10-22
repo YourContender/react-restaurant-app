@@ -1,27 +1,19 @@
+import { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faAngleRight, faAngleLeft } from '@fortawesome/free-solid-svg-icons';
+import { reviews } from '../../data';
 import bg from '../../img/01.gif';
 import './Reviews.scss';
-import { useState } from 'react';
-import { reviews } from '../../data';
 
 function Reviews() {
     const [count, setCount] = useState(1);
 
     const incCalc = () => {
-        if (count > reviews.length - 1) {
-            return setCount(1);
-        }
-
-        return setCount(count + 1)
+        return setCount(count > reviews.length - 1 ? 1 : count + 1)
     }
 
     const decCalc = () => {
-        if (count === 1) {
-            return setCount(reviews.length);
-        }
-        console.log('example:', count - 1)
-
-        return setCount(count - 1);
-        // return setCount(count < 0 ? reviews.length : count - 1)
+        return setCount(count === 1 ? reviews.length : count - 1)
     }
 
     return (
@@ -43,101 +35,41 @@ function Reviews() {
 
             <div className="reviews_slider">
                 <div className="reviews_slider_pages">
-                    {reviews.map(item => {
-                        if (item.id === count) {
-                            return (
-                                <div className="reviews_page reviews_first">
-                                    <div className="reviews_user">
-                                        <div>
-                                            <img src={item.photo} alt="review logo" />
+                    <button 
+                        className="reviews_slider_pages_left"
+                        onClick={() => decCalc()}
+                    >
+                        <FontAwesomeIcon icon={faAngleLeft} />
+                    </button>
+                        {reviews.map(item => {  
+                            if (item.id === count) {
+                                return (
+                                    <div className="reviews_page" key={item.id}>
+                                        <div className="reviews_user">
+                                            <div>
+                                                <img src={item.photo} alt="review" />
+                                            </div>
+                                            <div>
+                                                <h3>{item.name}</h3>
+                                                <span>{item.city}</span>
+                                            </div>
                                         </div>
-                                        <div>
-                                            <h3>{item.name}</h3>
-                                            <span>{item.city}</span>
+        
+                                        <div className="reviews_line"></div>
+                                        
+                                        <div className="reviews_descr">
+                                            <span>{item.descr}</span>
                                         </div>
                                     </div>
-    
-                                    <div className="reviews_line"></div>
-                                    
-                                    <div className="reviews_descr">
-                                        <span>{item.descr}</span>
-                                    </div>
-                                </div>
-                            )
-                        }
-                    })}
-                    
-                    {/* <div className="reviews_page reviews_first">
-                        <div className="reviews_user">
-                            <div>
-                                <img src={review1} alt="review logo" />
-                            </div>
-                            <div>
-                                <h3>Anna</h3>
-                                <span>Kryvyi Rih</span>
-                            </div>
-                        </div>
-
-                        <div className="reviews_line"></div>
-                        
-                        <div className="reviews_descr">
-                            <span>
-                                They known for its fabulous taste and food.
-                                Anywhere you go your hunger is satisfied. The 
-                                best chicken & burgers those are yummy.
-                            </span>
-                        </div>
-                    </div>
-
-                    <div className="reviews_page">
-                        <div className="reviews_user">
-                            <div>
-                                <img src={review2} alt="review logo" />
-                            </div>
-                            <div>
-                                <h3>Ivan Korobka</h3>
-                                <span>Kropivnitsky</span>
-                            </div>
-                        </div>
-
-                        <div className="reviews_line"></div>
-                        
-                        <div className="reviews_descr">
-                            <span>
-                                I have visited this fantastic restaurant on 
-                                several occasions, food is absolutely 
-                                outstanding & attention to detail is in
-                                league of its own.
-                            </span>
-                        </div>
-                    </div>
-
-                    <div className="reviews_page">
-                        <div className="reviews_user">
-                            <div>
-                                <img src={review3} alt="review logo" />
-                            </div>
-                            <div>
-                                <h3>Artem</h3>
-                                <span>Kyiv</span>
-                            </div>
-                        </div>
-
-                        <div className="reviews_line"></div>
-                        
-                        <div className="reviews_descr">
-                            <span>
-                                Perfectly known for its fabulous taste and
-                                food. Anywhere your hunger is satisfied. They
-                                give best fried chicken and burgers those are 
-                                yummy.
-                            </span>
-                        </div>
-                    </div> */}
-                </div>
-                <div>
-                    <button onClick={() => decCalc()}>Left</button>
-                    <button onClick={() => incCalc()}>Right</button>
+                                )
+                            }
+                        })}
+                    <button
+                        className="reviews_slider_pages_right" 
+                        onClick={() => incCalc()}
+                    >
+                        <FontAwesomeIcon icon={faAngleRight} />
+                    </button>
                 </div>
             </div>
 

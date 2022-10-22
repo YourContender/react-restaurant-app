@@ -3,6 +3,25 @@
     justify-content: center;
     background-color: #fff;
     padding-top: 50px;
+    &_btns {
+        display: flex;
+        justify-content: center;
+        margin-top: 30px;
+        button {
+            width: 90px;
+            height: 60px;
+            font-size: 72px;
+            background: none;
+            margin-bottom: 20px;
+            border: none;
+            color: #797E89;
+            margin-right: 24px;
+            margin-left: 24px;
+            &:hover {
+                color: #292E36;
+            }
+        }
+    }
     &_child {
         margin-top: 50px;
         margin-bottom: 50px;
@@ -16,6 +35,11 @@
             display: flex;
             align-items: center;
             cursor: pointer;
+            img {
+                width: 80px;
+                height: 90px;
+                border-radius: 20px;
+            }
         }
     }
     &_target {

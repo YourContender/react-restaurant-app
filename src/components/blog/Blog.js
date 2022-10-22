@@ -1,8 +1,9 @@
-import blog1 from '../../img/blog/blog1.png';
-import blog2 from '../../img/blog/blog2.png';
+import { blog } from '../../data';
 import './Blog.scss';
 
 const Blog = () => {
+
+    console.log(blog);
     return (
         <div className="blog">
             <div className="blog_promo">
@@ -23,69 +24,41 @@ const Blog = () => {
             </div>
 
             <div className="blog_content">
-                <div className="blog_content_item">
-                    <div>
-                        <img src={blog1} alt="blog logo" />
-                        <button>View More</button>
-                    </div>
-
-                    <div>
-                        <div className="blog_content_subtitle">
-                            <div>
-                                <span>Delicious</span>
+                {
+                    blog.map(item => {
+                        return (
+                            <div className="blog_content_item">
+                                <div>
+                                    <img src="https://i.pinimg.com/564x/b2/06/c4/b206c4964db8699d123b4b6e7ff34d05.jpg" alt="blog logo" />
+                                    <button>{item.textBtn}</button>
+                                </div>
+            
+                                <div>
+                                    <div className="blog_content_subtitle">
+                                        <div>
+                                            <span>{item.tag}</span>
+                                        </div>
+                                        <div className="blog_content_date">
+                                            <span>{item.date}</span>
+                                        </div>
+                                    </div>
+            
+                                    <div className="blog_content_title">
+                                        <div>
+                                            <h2>{item.title}</h2>
+                                        </div>
+                                        
+                                        <div>
+                                            <span>
+                                                {item.descr}
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div className="blog_content_date">
-                                <span>March 19, 2022</span>
-                            </div>
-                        </div>
-
-                        <div className="blog_content_title">
-                            <div>
-                                <h2>The Legend of US Cuisine: The Story of Hungry People</h2>
-                            </div>
-                            
-                            <div>
-                                <span>
-                                    Capitalize on low-hanging fruit to identify a ballpark value 
-                                    added matrix economically and the creative activity to beta test 
-                                    override the food quality.
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div className="blog_content_item">
-                    <div>
-                        <img src={blog2} alt="blog logo" />
-                        <button>View More</button>
-                    </div>
-
-                    <div>
-                        <div className="blog_content_subtitle">
-                            <div>
-                                <span>Cooking</span>
-                            </div>
-                            <div className="blog_content_date">
-                                <span>March 19, 2022</span>
-                            </div>
-                        </div>
-
-                        <div className="blog_content_title">
-                            <div>
-                                <h2>The Most Popular Delicious Food of Mediterranean Cuisine</h2>
-                            </div>
-                            
-                            <div>
-                                <span>
-                                    Strategies on low-hanging fruit to identify a ballpark 
-                                    value added matrix economically and the creative activity 
-                                    to beta test override the food quality.
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                        )
+                    })
+                }
             </div>
         </div>
     )
