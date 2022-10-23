@@ -1,4 +1,4 @@
-import { menu } from '../../data';
+import { initValue } from '../../data';
 import { useState, useEffect } from 'react';
 import current from '../../img/menu/curr.png';
 import star9 from '../../img/menu/9.png';
@@ -10,35 +10,73 @@ import './Menu.scss';
 const Menu = () => {
     const [count, setCount] = useState(true);
     const [data, setData] = useState([]);
+    const [fullListMenu, setFullListMenu] = useState([]);
+    const [fragmentList, setFragmentList] = useState([]);
+    const [currentItem, setCurrentItem] = useState(initValue);
+
+    const getFullListMenu = async () => {
+        const response = await fetch('https://635594e2483f5d2df3b72711.mockapi.io/menu');
+        const data = await response.json();
+
+        setFullListMenu(data);
+        setFragmentList([...data].splice(0, 4))
+    }
+    
+    const getCurrentItemFromList = async (id) => {
+        const response = await fetch(`https://635594e2483f5d2df3b72711.mockapi.io/menu/${id}`);
+        const data = await response.json();
+
+        setCurrentItem([data]);
+    }
 
     useEffect(() => {
-        return count ? setData([...menu].splice(0, 4)) : setData([...menu].splice(4, 8));     
+        getFullListMenu();
+    }, []);
+
+    useEffect(() => {
+        count ? setFragmentList([...fullListMenu].splice(0, 4)) : setFragmentList([...fullListMenu].splice(4, 8));
     }, [count]);
 
     return (
         <div className="menu">
-            <div className="menu_target">
-                <div>
-                    <h4>Try Our Special dishes</h4>
-                    <span>
-                        Every time you perfectly dine with us, it should <br/>
-                        happy for great inspired food in an environment <br/>
-                        designed with individual touches unique to the local <br/>
-                        area.
-                    </span>
-                </div>
+            {
+                currentItem.map(item => {
+                    return (
+                        <div className="menu_target">
+                            <div>
+                                <h4>{item.title}</h4>
+                                <span>{item.descr}</span>
+                            </div>
 
-                <img src={current} alt="current" />
-            </div>
+                            <div className="menu_target_compound">
+                                <img src={item.photo} alt="current" />
+
+                                <div>
+                                    <ul>
+                                        <li>apple</li>
+                                        <li>milk</li>
+                                        <li>coffee</li>
+                                        <li>juice</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    )
+                })
+            }
 
             <div className="menu_container">
                 <div>
                     <h4>Base menu</h4>
 
                     {
-                        data.map(item => {
+                        fragmentList.map(item => {
                             return (
-                                <div className="menu_descr" key={item.id}>  
+                                <div 
+                                    className="menu_descr" 
+                                    key={item.id}
+                                    onClick={() => getCurrentItemFromList(item.id)}
+                                >  
                                     <div className="menu_descr_container">
                                         <div>
                                             <img src={item.photo} alt="star" />

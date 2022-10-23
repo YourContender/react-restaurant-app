@@ -41,61 +41,12 @@ export const blog = [
     }
 ];
 
-export const menu = [
+export const initValue = [
     {
-        photo: 'https://i.pinimg.com/564x/11/c6/71/11c67116d2ddd7f65b4fba70539caf8f.jpg',
-        title: 'Raw Scallops from Erquy',
-        descr: 'Shuck the scallop to that used for oysters',
-        price: '40$',
-        id: 1
-    },
-    {
-        photo: 'https://i.pinimg.com/564x/5f/d8/9b/5fd89b807b6b1a587a01f6abe73cb92a.jpg',
-        title: 'Spring Roll',
-        descr: 'Add oil to a hot pan spring onion whites',
-        price: '20$',
-        id: 2
-    },
-    {
-        photo: 'https://i.pinimg.com/564x/c2/01/9b/c2019b26978711dac14c92a3525caf4b.jpg',
-        title: 'French Onion Soup',
-        descr: 'Wheat flour, apple cider vinegar, bread',
-        price: '20$',
-        id: 3
-    },
-    {
-        photo: 'https://i.pinimg.com/564x/44/c1/00/44c100f08fcd0407db58459d2fe58278.jpg',
-        title: 'Tomato Bruschetta',
-        descr: 'Bread, olive oil, garlic, black pepper',
-        price: '30$',
-        id: 4
-    },
-    {
-        photo: 'https://i.pinimg.com/564x/4b/aa/44/4baa440ddcfb6f8237dd8123dd85876c.jpg',
-        title: 'Grilled Salmon with Dill Sauce',
-        descr: 'Brown sugar, salmon fillet, Dijon mustard',
-        price: '40$',
-        id: 5
-    },
-    {
-        photo: 'https://i.pinimg.com/564x/db/ea/4e/dbea4e1ba19d167660e400f19b1a0e88.jpg',
-        title: 'Roast Beef with Vegetable',
-        descr: 'Green beans, rib eye, olive oil, beef',
-        price: '20$',
-        id: 6
-    },
-    {
-        photo: 'https://i.pinimg.com/564x/4a/19/c9/4a19c9dab068f0ebbd879577201c4792.jpg',
-        title: 'Marrkesh Vegetetarian Curruy',
-        descr: 'Sweet potato, eggplant, garbanzo bean',
-        price: '25$',
-        id: 7
-    },
-    {
-        photo: 'https://i.pinimg.com/564x/53/15/ff/5315ffe7c9065efda95d51671d815b84.jpg',
-        title: 'Spicy Vegan Potato Curry',
-        descr: 'Coconut milk, beans, potatoes, curry powder',
-        price: '35$',
-        id: 8
+        photo: 'https://i.pinimg.com/564x/f4/e2/c2/f4e2c221f516d2c87a71931f513a7177.jpg',
+        title: 'choose the best dish',
+        descr: 'just click on any of the items in the menu and detailed information will be available here',
+        price: 'good luck!',
+        id: "random 123"
     }
-]
+];

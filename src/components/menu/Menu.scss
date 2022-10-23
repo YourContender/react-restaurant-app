@@ -44,6 +44,21 @@
     }
     &_target {
         margin-right: 100px;
+        width: 500px;
+        &_compound {
+            display: flex;
+            font-family: 'Josefin Sans';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 20px;
+            line-height: 30px;
+            letter-spacing: 1px;
+            color: #555555;
+            ul {
+                margin-left: 30px;
+                margin-top: 50px;
+            }
+        }
         h4 {
             font-family: 'Cormorant Infant';
             font-style: normal;
