@@ -8,14 +8,20 @@ import './Reviews.scss';
 function Reviews() {
     const [count, setCount] = useState(1);
 
-    const incCalc = () => {
-        return setCount(count > reviews.length - 1 ? 1 : count + 1)
-    }
+    const incDecCalc = () => {
+        if (count > reviews.length - 1) {
+            return setCount(1);
+        } else {
+            return setCount(count + 1);
+        }
 
-    const decCalc = () => {
-        return setCount(count === 1 ? reviews.length : count - 1)
+        if(count === 1) {
+            return setCount(reviews.length)
+        } else {
+            return setCount(count - 1)
+        }
     }
-
+    
     return (
         <div className="reviews">
             <div className="reviews_title">
@@ -37,7 +43,7 @@ function Reviews() {
                 <div className="reviews_slider_pages">
                     <button 
                         className="reviews_slider_pages_left"
-                        onClick={() => decCalc()}
+                        onClick={() => incDecCalc()}
                     >
                         <FontAwesomeIcon icon={faAngleLeft} />
                     </button>
@@ -66,7 +72,7 @@ function Reviews() {
                         })}
                     <button
                         className="reviews_slider_pages_right" 
-                        onClick={() => incCalc()}
+                        onClick={() => incDecCalc()}
                     >
                         <FontAwesomeIcon icon={faAngleRight} />
                     </button>

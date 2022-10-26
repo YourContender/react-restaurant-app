@@ -43,10 +43,69 @@ export const blog = [
 
 export const initValue = [
     {
-        photo: 'https://i.pinimg.com/564x/f4/e2/c2/f4e2c221f516d2c87a71931f513a7177.jpg',
+        photo: 'https://i.pinimg.com/564x/0c/95/17/0c951734661be8543aa9c5c16bccc517.jpg',
         title: 'choose the best dish',
         descr: 'just click on any of the items in the menu and detailed information will be available here',
         price: 'good luck!',
         id: "random 123"
     }
 ];
+
+const menu_bar = [
+    {
+        "photo": "https://i.pinimg.com/564x/1e/f1/e8/1ef1e89c41a2067eccbf67ed31989688.jpg",
+        "title": "Apple Pie with Cream",
+        "descr": "Shuck the scallop to that used for oysters",
+        "price": "40$",
+        "id": "1"
+    },
+    {
+        "photo": "https://i.pinimg.com/564x/11/ed/2a/11ed2a95cc646b1ba08eb0ab5f151c29.jpg",
+        "title": "Raw Scallops from Erquy",
+        "descr": "Shuck the scallop to that used for oysters",
+        "price": "40$",
+        "id": "2"
+    },
+    {
+        "photo": "https://i.pinimg.com/564x/4a/c0/d1/4ac0d14e59f6db5a27fa8c00f069c528.jpg",
+        "title": "Raw Scallops from Erquy",
+        "descr": "Shuck the scallop to that used for oysters",
+        "price": "40$",
+        "id": "3"
+    },
+    {
+        "photo": "https://i.pinimg.com/564x/05/1e/a2/051ea215d62251635c8906597d491b76.jpg",
+        "title": "Raw Scallops from Erquy",
+        "descr": "Shuck the scallop to that used for oysters",
+        "price": "40$",
+        "id": "4"
+    },
+    {
+        "photo": "https://i.pinimg.com/564x/6d/b3/c8/6db3c87f11f986e245dca91b25ca1214.jpg",
+        "title": "Raw Scallops from Erquy",
+        "descr": "Shuck the scallop to that used for oysters",
+        "price": "40$",
+        "id": "5"
+    },
+    {
+        "photo": "https://i.pinimg.com/564x/ea/03/4c/ea034c005782c1289bc9c8f76639ff53.jpg",
+        "title": "Raw Scallops from Erquy",
+        "descr": "Shuck the scallop to that used for oysters",
+        "price": "40$",
+        "id": "6"
+    },
+    {
+        "photo": "https://i.pinimg.com/564x/1b/3c/17/1b3c17183560761d86c76908a8573e07.jpg",
+        "title": "Raw Scallops from Erquy",
+        "descr": "Shuck the scallop to that used for oysters",
+        "price": "40$",
+        "id": "7"
+    },
+    {
+        "photo": "https://i.pinimg.com/564x/ed/eb/5a/edeb5a34718c53f6d67b876fbf30c736.jpg",
+        "title": "Raw Scallops from Erquy",
+        "descr": "Shuck the scallop to that used for oysters",
+        "price": "40$",
+        "id": "8"
+    },
+]
