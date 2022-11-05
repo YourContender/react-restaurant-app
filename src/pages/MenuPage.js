@@ -5,7 +5,7 @@ import Nav from "../components/nav/Nav";
 function MenuPage() {
     return (
         <div>
-            <Header/>
+            {/* <Header/> */}
             <Nav/>
             <Menu/>
         </div>
