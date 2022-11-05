@@ -47,7 +47,7 @@ export const initValue = [
         title: 'choose the best dish',
         descr: 'just click on any of the items in the menu and detailed information will be available here',
         price: 'good luck!',
-        id: "random 123"
+        id: "init"
     }
 ];
 

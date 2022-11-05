@@ -3,6 +3,30 @@
     justify-content: center;
     background-color: #fff;
     padding-top: 20px;
+    min-height: 100vh;
+    &_order {
+        margin-top: 35px;
+        display: flex;
+        margin-left: 25px;
+        button {
+            width: 140px;
+            height: 60px;
+            font-family: 'Cormorant Infant';
+            font-size: 28px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            border: 2px solid #292E36;
+            border-radius: 5px;
+            color: #292E36;
+            background: none;
+            transition: .5s ease-in;
+            &:hover {
+                color: #292E36;
+                border: 2px solid #E1B168;
+                background-color: #E1B168;
+            }
+        }
+    }
     &_filters {
         display: flex;
         justify-content: space-between;
@@ -29,6 +53,22 @@
         display: flex;
         justify-content: center;
         margin-top: 30px;
+        a {
+            text-transform: uppercase;
+            font-size: 28px;
+            border: 2px solid #292E36;
+            padding: 10px 15px;
+            margin-bottom: 20px;
+            font-family: 'Cormorant Infant';
+            cursor: pointer;
+            border-radius: 5px;
+            color: #292E36;
+            &:hover {
+                color: #292E36;
+                border: 2px solid #E1B168;
+                background-color: #E1B168;
+            }
+        }
         button {
             width: 90px;
             height: 60px;

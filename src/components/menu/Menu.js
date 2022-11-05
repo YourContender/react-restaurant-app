@@ -1,8 +1,9 @@
 import { initValue } from '../../data';
 import { useState, useEffect } from 'react';
 import Buttons from './buttons/Buttons';
-import ItemMenu from './item-menu/ItemMenu';
 import CurrentElement from './current-elem/CurrentElement';
+import Filter from './filter/Filter';
+import ItemMenu from './item-menu/ItemMenu';
 import './Menu.scss';
 
 const Menu = () => {
@@ -32,59 +33,61 @@ const Menu = () => {
         return setCount(count + 5);
     }
 
+    const filteredMenu = () => {
+        switch (filter) {
+            case 'all' :
+                return setFragmentList(
+                    [...fullListMenu]
+                        .slice(count - 5, count)
+                );
+            case 'kitchen' :
+                return setFragmentList(
+                    fullListMenu
+                        .filter(item => item.category === 'kitchen')
+                )
+            case 'bar' :
+                return setFragmentList(
+                    fullListMenu
+                        .filter(item => item.category === 'bar')
+                    )
+            case 'sale' :
+                return setFragmentList([...fullListMenu].filter(item => item.category === 'sale'))
+        }
+    }
+
     useEffect(() => {
         getFullListMenu();
     }, []);
 
     useEffect(() => {
+        filteredMenu();
+        setCount(count)
+    }, [filter]);
+
+    useEffect(() => {
         if (count > fullListMenu.length + 5) {
             return setCount(5);
         }
+
         setFragmentList([...fullListMenu].slice(count - 5, count));
     }, [count]);
 
     return (
         <div className="menu">
-            {
-                currentItem.map(item => {
-                    return (
-                        <CurrentElement key={item.id} item={item}/>
-                    )
-                })
-            }
+            <CurrentElement currentItem={currentItem} />
 
             <div className="menu_container">
                 <div>
                     <h4>Base menu</h4>
 
-                    <div className="menu_filters">
-                        <div>
-                            <button>All</button>
-                        </div>
-                        <div>
-                            <button>Kitchen</button>
-                        </div>
-                        <div>
-                            <button>Bar</button>
-                        </div>
-                        <div>
-                            <button>Sale</button>
-                        </div>
-                    </div>
+                    <Filter setFilter={setFilter}/>
                     
-                    {
-                        fragmentList.map(item => {
-                            return (
-                                <ItemMenu 
-                                    item={item} 
-                                    key={item.id}
-                                    getCurrentItemFromList={getCurrentItemFromList}
-                                />
-                            )
-                        })
-                    }
+                    <ItemMenu 
+                        fragmentList={fragmentList} 
+                        getCurrentItemFromList={getCurrentItemFromList}
+                    />
 
-                    <Buttons incDecCalc={incDecCalc} />
+                    <Buttons filter={filter} setFilter={setFilter} incDecCalc={incDecCalc} />
                 </div>
             </div>
         </div>
