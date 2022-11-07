@@ -22,23 +22,33 @@ function Basket() {
                     </div>
 
                     <div className="basket_products_list_quantity">
-                        <button >
-                            <FontAwesomeIcon 
-                                icon={faAngleLeft} 
-                            />
-                        </button>
+                        <div className='test'>
+                            <button >
+                                <FontAwesomeIcon 
+                                    icon={faAngleLeft} 
+                                />
+                            </button>
+                        </div>
 
-                        <h2>5</h2>
+                        <div className='test'>
+                            <h2>5</h2>
+                        </div>
                         
-                        <button>
-                            <FontAwesomeIcon 
-                                icon={faAngleRight} 
-                            />
-                        </button>
+                        <div className='test'>
+                            <button>
+                                <FontAwesomeIcon 
+                                    icon={faAngleRight} 
+                                />
+                            </button>
+                        </div>
                     </div>
 
                     <div className="basket_products_list_price">
                         <h3>40$</h3>
+                    </div>
+
+                    <div className="basket_products_list_remove">
+                        <button>X</button>
                     </div>
                 </div>
             </div>
@@ -46,26 +56,31 @@ function Basket() {
             <div className="basket_order">
                 <div className="basket_order_promo">
                     <div>
-                        <div>
-                            <span>Promo code</span>
-                        </div>
-
-                        <div>
-                            <input type="text" />
-                        </div>
-    
-                        <button>apply promo code</button>
+                        <span>Promo code</span>
                     </div>
 
+                    <div>
+                        <input type="text" placeholder="enter promo code"/>
+                    </div>
+
+                    <button>apply promo code</button>
                 </div>
+
+                <div className="basket_order_line"></div>
 
                 <div className="basket_order_price">
                     <div>
-                        order price : 100$
+                        <span>
+                            order price : 100$
+                        </span>
                     </div>
 
+                    <div className="basket_order_line"></div>
+                    
                     <div>
-                        total: 100$
+                        <h2>
+                            total: 100$
+                        </h2>
                     </div>
                 </div>
 

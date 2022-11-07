@@ -6,13 +6,39 @@
     align-items: flex-start;
     justify-content: space-around;
     &_products {
-        padding-top: 50px;
-        width: 70%;
+        margin-top: 50px;
+        margin-left: 100px;
+        padding: 10px;
+        width: 50%;
+        border: 1px solid #5959595e;
+        border-radius: 5px;
         &_list {
             display: flex;
             justify-content: space-around;
             align-items: center;
-            width: 60%;
+            &_quantity {
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                width: 150px;
+                h2 {
+                    text-align: center;
+                    margin-left: 12px;
+                }
+                button {
+                    text-align: center;
+                    width: 24px;
+                    height: 24px;
+                    font-size: 36px;
+                    background: none;
+                    margin-bottom: 20px;
+                    border: none;
+                    color: #797E89;
+                    &:hover {
+                        color: #292E36;
+                    }
+                }
+            }
             img {
                 border-radius: 100%;
                 width: 150px;
@@ -21,25 +47,128 @@
             &_title {
                 margin-left: 30px;
                 margin-right: 35px;
+                width: 300px;
                 h3 {
                     margin: 0;
+                    text-transform: uppercase;
+                    font-family: 'Cormorant Infant';
+                    font-style: normal;
+                    font-weight: 700;
+                    letter-spacing: 4px;
+                    margin-bottom: 15px;
                 }
             }
-            &_quantity {
-                display: flex;
-                align-items: center;
-                h2 {
-                    margin: 0 20px;
+            &_remove {
+                button {
+                    font-size: 28px;
+                    background: none;
+                    border: 1px solid red;
+                    border-radius: 5px;
+                    color: red;
+                    &:hover {
+                        color: #fff;
+                        background-color: red;
+                    }
                 }
-            }
-            &_price {
-
             }
         }
     }
     &_order {
-        width: 20%;
-        height: 50px;
-        background-color: aqua;
+        width: 24%;
+        height: 370px;
+        background-color: rgba(238, 245, 245, 0.685);
+        margin-right: 100px;
+        margin-top: 50px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        &_line {
+            width: 90%;
+            height: 1px;
+            background-color: #5959595e;
+            margin: 20px 0;
+        }
+        &_promo {
+            span {
+                font-family: 'Cormorant Infant';
+                font-style: normal;
+                font-weight: 700;
+                font-size: 24px;
+                letter-spacing: 2px;
+                color: #292E36;
+                margin: 20px 0;
+                text-align: center;
+            }
+            input {
+                width: 300px;
+                height: 35px;
+                margin: 20px 0;
+                border: 1px solid #59595993;
+                outline: none;
+                border-radius: 5px;
+                &::placeholder {
+                    font-size: 16px;
+                    padding-left: 15px;
+                    letter-spacing: 2px;
+                }
+            }
+            button {
+                width: 300px;
+                height: 40px;
+                background-color: rgba(247, 12, 12, 0.705);
+                color: #fff;
+                border: none;
+                border-radius: 5px;
+                font-family: 'Cormorant Infant';
+                font-style: normal;
+                font-weight: 700;
+                font-size: 16px;
+                letter-spacing: 2px;
+                text-transform: uppercase;
+            }
+        }
+        &_price {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            span {
+                font-family: 'Cormorant Infant';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 18px;
+                letter-spacing: 4px;
+                color: #292E36;
+                margin: 20px 0; 
+            }
+            h2 {
+                margin: 0;
+                text-transform: uppercase;
+                margin-bottom: 20px;
+                font-family: 'Cormorant Infant';
+                font-style: normal;
+                font-weight: 700;
+                letter-spacing: 4px;
+            }
+        }
+        &_message {
+            button {
+                width: 150px;
+                height: 40px;
+                text-transform: uppercase;
+                background-color: rgba(255, 0, 0, 0.911);
+                color: #fff;
+                border: none;
+                border-radius: 5px;
+                font-family: 'Cormorant Infant';
+                font-style: normal;
+                font-weight: 700;
+                font-size: 18px;
+                letter-spacing: 5px;
+                margin-bottom: 5px;
+            }
+        }
     }
 }
