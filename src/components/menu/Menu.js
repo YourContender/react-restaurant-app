@@ -16,7 +16,6 @@ const Menu = () => {
     const getFullListMenu = async () => {
         const response = await fetch('https://635594e2483f5d2df3b72711.mockapi.io/menu');
         const data = await response.json();
-        console.log(data);
 
         setFullListMenu(data);
         setFragmentList([...data].filter(item => item.id <= 5))
@@ -51,7 +50,10 @@ const Menu = () => {
                         .filter(item => item.category === 'bar')
                     )
             case 'sale' :
-                return setFragmentList([...fullListMenu].filter(item => item.category === 'sale'))
+                return setFragmentList(
+                    [...fullListMenu]
+                        .filter(item => item.category === 'sale')
+                )
         }
     }
 
@@ -69,25 +71,36 @@ const Menu = () => {
             return setCount(5);
         }
 
-        setFragmentList([...fullListMenu].slice(count - 5, count));
+        setFragmentList(
+            [...fullListMenu]
+                .slice(count - 5, count)
+        );
     }, [count]);
 
     return (
         <div className="menu">
-            <CurrentElement currentItem={currentItem} />
+            <CurrentElement 
+                currentItem={currentItem} 
+            />
 
             <div className="menu_container">
                 <div>
                     <h4>Base menu</h4>
 
-                    <Filter setFilter={setFilter}/>
+                    <Filter 
+                        setFilter={setFilter}
+                    />
                     
                     <ItemMenu 
                         fragmentList={fragmentList} 
                         getCurrentItemFromList={getCurrentItemFromList}
                     />
 
-                    <Buttons filter={filter} setFilter={setFilter} incDecCalc={incDecCalc} />
+                    <Buttons 
+                        filter={filter} 
+                        setFilter={setFilter} 
+                        incDecCalc={incDecCalc} 
+                    />
                 </div>
             </div>
         </div>

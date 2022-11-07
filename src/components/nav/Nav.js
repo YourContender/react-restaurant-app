@@ -26,7 +26,7 @@ const Nav = () => {
                         <Link to="/blog">Blog</Link>
                     </div>
                     <div>
-                        <a href="#">Basket</a>
+                        <a href="/basket">Basket</a>
                     </div>                
                 </div>
                 

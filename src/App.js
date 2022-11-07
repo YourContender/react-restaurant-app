@@ -4,7 +4,8 @@ import HomePage from './pages/HomePage';
 import MenuPage from './pages/MenuPage';
 import PopularDishesPage from './pages/PopularDishesPage';
 import BlogPage from './pages/BlogPages';
-import ReservationPage from './pages/ReservaionPage';
+import ReservationPage from './pages/ReservationPage';
+import BasketPages from './pages/BasketPages';
 import './App.scss';
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
                 <Route path="/dishes" element={<PopularDishesPage />}/>
                 <Route path="/blog" element={<BlogPage />}/>
                 <Route path="/reservation" element={<ReservationPage />}/>
+                <Route path="/basket" element={<BasketPages/>}/>
             </Routes>
         </div>
     )

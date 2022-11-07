@@ -1,0 +1,45 @@
+.basket {
+    width: 100vw;
+    height: 90vh;
+    background-color: #fff;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
+    &_products {
+        padding-top: 50px;
+        width: 70%;
+        &_list {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            width: 60%;
+            img {
+                border-radius: 100%;
+                width: 150px;
+                height: 150px;
+            }
+            &_title {
+                margin-left: 30px;
+                margin-right: 35px;
+                h3 {
+                    margin: 0;
+                }
+            }
+            &_quantity {
+                display: flex;
+                align-items: center;
+                h2 {
+                    margin: 0 20px;
+                }
+            }
+            &_price {
+
+            }
+        }
+    }
+    &_order {
+        width: 20%;
+        height: 50px;
+        background-color: aqua;
+    }
+}
