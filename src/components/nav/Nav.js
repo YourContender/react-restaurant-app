@@ -4,8 +4,22 @@ import tw from '../../img/icons/tw.png';
 import pt from '../../img/icons/pt.png';
 import { Link } from 'react-router-dom';
 import './Nav.scss';
+import { useEffect, useState } from 'react';
 
 const Nav = () => {
+    const [listOrder, setListOrder] = useState([]);
+
+    const getOrderList = async () => {
+        const res = await fetch('https://635594e2483f5d2df3b72711.mockapi.io/basket');
+        const data = await res.json();
+
+        setListOrder(data);
+    }
+
+    useEffect(() => {
+        getOrderList();
+    }, [])
+
     return (
         <div className='nav'>
             <div className='nav_container'>
@@ -26,7 +40,10 @@ const Nav = () => {
                         <Link to="/blog">Blog</Link>
                     </div>
                     <div>
-                        <a href="/basket">Basket</a>
+                        <Link to="/basket">
+                            Basket 
+                            <span>{listOrder.length >= 1 ? 'x' + listOrder.length : null}</span>
+                        </Link>
                     </div>                
                 </div>
                 
