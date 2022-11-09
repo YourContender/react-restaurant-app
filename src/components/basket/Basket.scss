@@ -76,7 +76,7 @@
     }
     &_order {
         width: 24%;
-        height: 370px;
+        height: 400px;
         background-color: rgba(238, 245, 245, 0.685);
         margin-right: 100px;
         margin-top: 50px;
@@ -141,6 +141,9 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            &_item {
+                margin-bottom: 10px;
+            }
             span {
                 font-family: 'Cormorant Infant';
                 font-style: normal;

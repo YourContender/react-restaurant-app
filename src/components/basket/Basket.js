@@ -6,21 +6,33 @@ import { useState } from 'react';
 
 function Basket() {
     const [listBasket, setListBasket] = useState([]);
-    const [count, setCount] = useState(1);
-    const [filter, setFilter] = useState([]);
+    const [priceDelivery, setPriceDelivery] = useState(0);
+    const [priceOrder, setPriceOrder] = useState(0);
+
+    const getSumPriceOrder = () => {
+        let sum = 0;
+
+        listBasket.forEach(item => sum += item.price * item.quantity);
+    
+        return setPriceOrder(sum);
+    }
+
+    useEffect(() => {
+        getSumPriceOrder();
+    }, [listBasket])
 
     const getOrderList = async () => {
         const res = await fetch('https://635594e2483f5d2df3b72711.mockapi.io/basket');
         const data = await res.json();
 
         setListBasket(data);
+        console.log('data init: ', data);
     }
 
-    const incDecCalc = async (id) => {
-        console.log(id);
+    const incDecCalc = async (elem, action) => {
         let filtered = listBasket.map(item => {
-            if (item.id === id) {
-                console.log(item);
+            if (item.id === elem.id) {
+                console.log('item', item.quantity - 1);
                 return {
                     photo: item.photo,
                     title: item.title,
@@ -28,17 +40,25 @@ function Basket() {
                     price: item.price,
                     id: item.id,
                     category: item.category,
-                    quantity: item.quantity + 1
+                    quantity: action ? +item.quantity + 1 : item.quantity - 1
                 }
             }
-            return item
+            return item;
         })
 
-        console.log(filtered);
+        let data = {
+            photo: elem.photo,
+            title: elem.title,
+            descr: elem.descr,
+            price: elem.price,
+            id: elem.id,
+            category: elem.category,
+            quantity: action ? +elem.quantity + 1 : elem.quantity - 1
+        }
 
-        const res = await fetch(`https://635594e2483f5d2df3b72711.mockapi.io/basket/${id}`, {
+        const res = await fetch(`https://635594e2483f5d2df3b72711.mockapi.io/basket/${elem.id}`, {
             method: 'PUT',
-            body: JSON.stringify(filtered),
+            body: JSON.stringify(data),
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
@@ -52,7 +72,7 @@ function Basket() {
 
     useEffect(() => {
         getOrderList();
-    }, [])
+    }, []);
 
     return (
         <div className="basket">
@@ -78,7 +98,7 @@ function Basket() {
                                 <div className="basket_products_list_quantity">
                                     <div className='test'>
                                         <button 
-                                            onClick={() => setCount(item.count - 1)}
+                                            onClick={() => incDecCalc(item)}
                                         >
                                             <FontAwesomeIcon 
                                                 icon={faAngleLeft} 
@@ -92,7 +112,7 @@ function Basket() {
                                     
                                     <div className='test'>
                                         <button 
-                                            onClick={() => incDecCalc(item.id)}
+                                            onClick={() => incDecCalc(item, 'plus')}
                                         >
                                             <FontAwesomeIcon 
                                                 icon={faAngleRight} 
@@ -102,7 +122,7 @@ function Basket() {
                                 </div>
 
                                 <div className="basket_products_list_price">
-                                    <h3>{item.price}</h3>
+                                    <h3>{parseInt(item.price, 10) * +item.quantity}$</h3>
                                 </div>
 
                                 <div className="basket_products_list_remove">
@@ -130,9 +150,15 @@ function Basket() {
                 <div className="basket_order_line"></div>
 
                 <div className="basket_order_price">
+                    <div className="basket_order_price_item">
+                        <span>
+                            order price : {priceOrder}$
+                        </span>
+                    </div>
+
                     <div>
                         <span>
-                            order price : 100$
+                            delivery price : {priceOrder * 0.1}$ 
                         </span>
                     </div>
 
@@ -140,7 +166,7 @@ function Basket() {
                     
                     <div>
                         <h2>
-                            total: 100$
+                            total: {priceOrder + priceOrder * 0.1}$
                         </h2>
                     </div>
                 </div>
