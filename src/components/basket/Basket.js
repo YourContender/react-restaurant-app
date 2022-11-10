@@ -7,6 +7,7 @@ import { useState } from 'react';
 function Basket() {
     const [listBasket, setListBasket] = useState([]);
     const [priceOrder, setPriceOrder] = useState(0);
+    const [promoCode, setPromoCode] = useState('');
 
     const getSumPriceOrder = () => {
         let sum = 0;
@@ -25,13 +26,12 @@ function Basket() {
         const data = await res.json();
 
         setListBasket(data);
-        console.log('data init: ', data);
+
     }
 
     const removeCurrentProduct = async (id) => {
         console.log('remove: ', id);
         let filtered = listBasket.filter(item => item.id !== id);
-        // console.log('filtered', filtered);
 
         const res = await fetch(`https://635594e2483f5d2df3b72711.mockapi.io/basket/${id}`, {
             method: 'DELETE'
@@ -158,7 +158,11 @@ function Basket() {
                     </div>
 
                     <div>
-                        <input type="text" placeholder="enter promo code"/>
+                        <input 
+                            type="text" 
+                            placeholder="enter promo code"
+                            onChange={(e) => setPromoCode(e.target.value)}
+                        />
                     </div>
 
                     <button>apply promo code</button>
@@ -168,9 +172,29 @@ function Basket() {
 
                 <div className="basket_order_price">
                     <div className="basket_order_price_item">
-                        <span>
-                            order price : {priceOrder}$
-                        </span>
+                        {
+                            (promoCode === '777') ? (
+                                <div>
+                                    <div>
+                                        <span className="promo_code">
+                                            price with promo code : <br/>
+                                            {priceOrder - priceOrder * 0.2}$
+                                        </span>
+                                    </div>
+                                    
+                                    <div className="promo_code_message">
+                                        <span>
+                                            20% to the total cost of products
+                                        </span>
+                                    </div>
+                                </div>
+
+                                ) : (
+                    
+                                <span>
+                                    order price : {priceOrder}$
+                                </span> )
+                        }
                     </div>
 
                     <div>
@@ -183,7 +207,9 @@ function Basket() {
                     
                     <div>
                         <h2>
-                            total: {priceOrder + priceOrder * 0.1}$
+                            total: {promoCode ? 
+                                (priceOrder - priceOrder * 0.2) + priceOrder * 0.1 : (
+                                priceOrder + priceOrder * 0.1)}$
                         </h2>
                     </div>
                 </div>

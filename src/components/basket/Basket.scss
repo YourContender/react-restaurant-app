@@ -76,7 +76,7 @@
     }
     &_order {
         width: 24%;
-        height: 400px;
+        height: 450px;
         background-color: rgba(238, 245, 245, 0.685);
         margin-right: 100px;
         margin-top: 50px;
@@ -143,6 +143,9 @@
             align-items: center;
             &_item {
                 margin-bottom: 10px;
+                &_code {
+                    color: red;
+                }
             }
             span {
                 font-family: 'Cormorant Infant';
@@ -185,6 +188,17 @@
                     color: rgba(255, 0, 0, 0.911);
                 }
             }
+        }
+    }
+}
+
+.promo_code {
+    background-color: rgba(218, 132, 132, 0.699);
+    &_message {
+        margin-top: 5px;
+        span {
+            font-size: 12px;
+            letter-spacing: 2px;
         }
     }
 }
