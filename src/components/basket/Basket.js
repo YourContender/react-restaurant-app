@@ -6,7 +6,6 @@ import { useState } from 'react';
 
 function Basket() {
     const [listBasket, setListBasket] = useState([]);
-    const [priceDelivery, setPriceDelivery] = useState(0);
     const [priceOrder, setPriceOrder] = useState(0);
 
     const getSumPriceOrder = () => {
@@ -27,6 +26,20 @@ function Basket() {
 
         setListBasket(data);
         console.log('data init: ', data);
+    }
+
+    const removeCurrentProduct = async (id) => {
+        console.log('remove: ', id);
+        let filtered = listBasket.filter(item => item.id !== id);
+        // console.log('filtered', filtered);
+
+        const res = await fetch(`https://635594e2483f5d2df3b72711.mockapi.io/basket/${id}`, {
+            method: 'DELETE'
+        });
+
+        if (res.status === 200) {
+            setListBasket(filtered);
+        }
     }
 
     const incDecCalc = async (elem, action) => {
@@ -126,7 +139,11 @@ function Basket() {
                                 </div>
 
                                 <div className="basket_products_list_remove">
-                                    <button>X</button>
+                                    <button
+                                        onClick={() => removeCurrentProduct(item.id)}
+                                    >
+                                        X
+                                    </button>
                                 </div>
                             </div>
                         )

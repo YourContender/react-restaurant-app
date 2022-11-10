@@ -1,4 +1,4 @@
-const CurrentElementView = ({ item, currentItem }) => {
+const CurrentElementView = ({ item, currentItem, addCurrentProduct }) => {
     return (
         <div className="menu_target" key={item.id}>
             <div>
@@ -22,7 +22,9 @@ const CurrentElementView = ({ item, currentItem }) => {
             {
                 currentItem[0].id !== 'init' &&
                     <div className="menu_order">
-                        <button>
+                        <button
+                            onClick={() => addCurrentProduct(item)}
+                        >
                             Order
                         </button>
                     </div>
