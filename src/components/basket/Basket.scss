@@ -1,5 +1,5 @@
 .basket {
-    width: 100vw;
+    width: 100%;
     height: 90vh;
     background-color: #fff;
     display: flex;
@@ -61,14 +61,14 @@
             }
             &_remove {
                 button {
-                    font-size: 28px;
+                    font-size: 24px;
                     background: none;
-                    border: 1px solid red;
+                    border: 1px solid #292E36;
                     border-radius: 5px;
-                    color: red;
+                    color: #595959;
                     &:hover {
-                        color: #fff;
-                        background-color: red;
+                        color: #e45d5d;
+                        border: 1px solid red;
                     }
                 }
             }

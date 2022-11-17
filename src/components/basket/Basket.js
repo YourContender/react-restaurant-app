@@ -1,13 +1,14 @@
+import { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleRight, faAngleLeft } from '@fortawesome/free-solid-svg-icons';
+import { faAngleRight, faAngleLeft, faTrash } from '@fortawesome/free-solid-svg-icons';
+import BasketModal from './basket-modal/BasketModal';
 import './Basket.scss';
-import { useEffect } from 'react';
-import { useState } from 'react';
 
 function Basket() {
     const [listBasket, setListBasket] = useState([]);
     const [priceOrder, setPriceOrder] = useState(0);
     const [promoCode, setPromoCode] = useState('');
+    const [displayModal, setDisplayModal] = useState(false);
 
     const getSumPriceOrder = () => {
         let sum = 0;
@@ -15,6 +16,26 @@ function Basket() {
         listBasket.forEach(item => sum += item.price * item.quantity);
     
         return setPriceOrder(sum);
+    }
+
+    const calcPriceWithPromoCode = () => {
+        return priceOrder - priceOrder * 0.2;
+    }
+
+    const calcDeliveryPrice = () => {
+        return priceOrder > 500 ? 0 : priceOrder * 0.1;
+    }
+
+    const calcTotalSum = () => {
+        if (promoCode === '777' && priceOrder < 500) {
+            return calcPriceWithPromoCode() + calcDeliveryPrice();
+        } else if (promoCode === '777' && priceOrder > 500) {
+            return calcPriceWithPromoCode();
+        } else if (promoCode === '' && priceOrder > 500) {
+            return priceOrder;
+        } else {
+            return priceOrder + calcDeliveryPrice();
+        }
     }
 
     useEffect(() => {
@@ -26,7 +47,6 @@ function Basket() {
         const data = await res.json();
 
         setListBasket(data);
-
     }
 
     const removeCurrentProduct = async (id) => {
@@ -45,7 +65,6 @@ function Basket() {
     const incDecCalc = async (elem, action) => {
         let filtered = listBasket.map(item => {
             if (item.id === elem.id) {
-                console.log('item', item.quantity - 1);
                 return {
                     photo: item.photo,
                     title: item.title,
@@ -89,6 +108,15 @@ function Basket() {
 
     return (
         <div className="basket">
+            {
+                displayModal ? 
+                    <BasketModal 
+                        setDisplayModal={setDisplayModal}
+                        listBasket={listBasket}
+                        calcTotalSum={calcTotalSum}
+                    /> : null
+            } 
+
             <div className="basket_products">
                 {
                     listBasket.map(item => {
@@ -142,7 +170,9 @@ function Basket() {
                                     <button
                                         onClick={() => removeCurrentProduct(item.id)}
                                     >
-                                        X
+                                        <FontAwesomeIcon 
+                                            icon={faTrash} 
+                                        />
                                     </button>
                                 </div>
                             </div>
@@ -178,7 +208,7 @@ function Basket() {
                                     <div>
                                         <span className="promo_code">
                                             price with promo code : <br/>
-                                            {priceOrder - priceOrder * 0.2}$
+                                            {calcPriceWithPromoCode()}$
                                         </span>
                                     </div>
                                     
@@ -199,7 +229,7 @@ function Basket() {
 
                     <div>
                         <span>
-                            delivery price : {priceOrder * 0.1}$ 
+                            delivery price : {calcDeliveryPrice()}$ 
                         </span>
                     </div>
 
@@ -207,15 +237,15 @@ function Basket() {
                     
                     <div>
                         <h2>
-                            total: {promoCode ? 
-                                (priceOrder - priceOrder * 0.2) + priceOrder * 0.1 : (
-                                priceOrder + priceOrder * 0.1)}$
+                            total: {calcTotalSum()}$
                         </h2>
                     </div>
                 </div>
 
                 <div className="basket_order_message">
-                    <button>
+                    <button
+                        onClick={() => setDisplayModal(true)}
+                    >
                         design
                     </button>
                 </div>
