@@ -4,8 +4,6 @@ import { faSquareXmark } from '@fortawesome/free-solid-svg-icons';
 import './BasketModal.scss';
 
 const BasketModal = ({ setDisplayModal, listBasket, calcTotalSum }) => {
-    const [choiceDelivery, setChoiceDelivery] = useState('');
-
     return (
         <div className="modal">
             <div className="modal_order">
@@ -19,11 +17,11 @@ const BasketModal = ({ setDisplayModal, listBasket, calcTotalSum }) => {
                 </button>
 
                 <div className="modal_order_content">
-                    <div>
+                    <div className="modal_order_content_title">
                         <h2>confirm order</h2>
                     </div>
 
-                    <div>
+                    <div className="modal_order_content_container">
                         <span><em>your order: </em></span>
 
                         {
@@ -46,15 +44,17 @@ const BasketModal = ({ setDisplayModal, listBasket, calcTotalSum }) => {
                             })
                         }
 
-                        <span>
-                            <em>
-                                your order: <strong>{calcTotalSum()} $</strong>
-                            </em>
-                        </span>
+                        <div className="modal_order_sum">
+                            <span>
+                                {calcTotalSum()} $
+                            </span>
+                        </div>
                     </div>
 
                     <div>
-                        <h2>enter forms</h2>
+                        <div className="modal_order_content_title">
+                            <h2>enter forms</h2>
+                        </div>
                         
                         <div className="modal_forms">
                             <div>

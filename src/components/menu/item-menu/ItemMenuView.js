@@ -19,7 +19,7 @@ const ItemMenuView = ({ item, getCurrentItemFromList }) => {
             </div>
 
             <div>
-                <span>{price}</span>
+                <span>{price} $</span>
             </div>
         </div>
     )
