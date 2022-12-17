@@ -67,11 +67,14 @@ const Dishes = () => {
                 </div>
 
                 <div className="dishes_btn">
-                    <button
-                        onClick={() => setCount(count + 4)}
-                    >
-                        See all dishes
-                    </button>
+                    {
+                        count <= listMenu.length ? 
+                            <button
+                                onClick={() => setCount(count + 4)}
+                            >
+                                See all dishes
+                            </button> : null
+                    }
                 </div>
             </div>
         </div>

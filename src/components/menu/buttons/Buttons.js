@@ -5,29 +5,31 @@ const Buttons = ({ incDecCalc, filter, setFilter }) => {
     return (
         <div className="menu_btns">
             {
-                (filter === "all") ? ( 
+                // (filter === "all") ? ( 
                     <>
-                        <button >
-                            <FontAwesomeIcon 
-                                icon={faAngleLeft} 
-                            />
+                        <button 
+                            onClick={() => incDecCalc('minus')}>
+                                <FontAwesomeIcon 
+                                    icon={faAngleLeft} 
+                                />
                         </button>
                         
                         <button 
-                            onClick={() => incDecCalc()}>
+                            onClick={() => incDecCalc('plus')}>
                                 <FontAwesomeIcon 
                                     icon={faAngleRight} 
                                 />
                         </button>
-                    </> ) : (
+                    </> 
+                //     ) : (
 
-                    <a   
-                        className="menu_btns_reset"
-                        onClick={() => setFilter('all')} 
-                    >
-                        reset filter
-                    </a>
-                )
+                //     <a   
+                //         className="menu_btns_reset"
+                //         onClick={() => setFilter('all')} 
+                //     >
+                //         reset filter
+                //     </a>
+                // )
             }
         </div>
     )

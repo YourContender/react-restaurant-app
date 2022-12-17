@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleRight, faAngleLeft, faTrash } from '@fortawesome/free-solid-svg-icons';
 import BasketModal from './basket-modal/BasketModal';
 import './Basket.scss';
+import BasketProductsItem from './basket-products-item/BasketProductsItem';
 
 function Basket() {
     const [listBasket, setListBasket] = useState([]);
@@ -117,69 +116,7 @@ function Basket() {
                     /> : null
             } 
 
-            <div className="basket_products">
-                {
-                    listBasket.map(item => {
-                        return (
-                            <div className="basket_products_list" key={item.id}>
-                                <div>
-                                    <img src={item.photo} alt="item photo" />
-                                </div>
-
-                                <div className="basket_products_list_title">
-                                    <div>
-                                        <h3>{item.title}</h3>
-                                    </div>
-
-                                    <div>
-                                        <span>{item.descr}</span>
-                                    </div>
-                                </div>
-
-                                <div className="basket_products_list_quantity">
-                                    <div className='test'>
-                                        <button 
-                                            onClick={() => incDecCalc(item)}
-                                        >
-                                            <FontAwesomeIcon 
-                                                icon={faAngleLeft} 
-                                            />
-                                        </button>
-                                    </div>
-
-                                    <div className='test'>
-                                        <h2>{item.quantity}</h2>
-                                    </div>
-                                    
-                                    <div className='test'>
-                                        <button 
-                                            onClick={() => incDecCalc(item, 'plus')}
-                                        >
-                                            <FontAwesomeIcon 
-                                                icon={faAngleRight} 
-                                            />
-                                        </button>
-                                    </div>
-                                </div>
-
-                                <div className="basket_products_list_price">
-                                    <h3>{parseInt(item.price, 10) * +item.quantity}$</h3>
-                                </div>
-
-                                <div className="basket_products_list_remove">
-                                    <button
-                                        onClick={() => removeCurrentProduct(item.id)}
-                                    >
-                                        <FontAwesomeIcon 
-                                            icon={faTrash} 
-                                        />
-                                    </button>
-                                </div>
-                            </div>
-                        )
-                    })
-                }
-            </div>
+            <BasketProductsItem listBasket={listBasket} incDecCalc={incDecCalc} removeCurrentProduct={removeCurrentProduct}/>
 
             <div className="basket_order">
                 <div className="basket_order_promo">

@@ -1,6 +1,7 @@
 import ItemMenuView from "./ItemMenuView";
 
 const ItemMenu = ({ fragmentList, getCurrentItemFromList }) => {
+    console.log('test: ', fragmentList);
     return (
         <>
             {

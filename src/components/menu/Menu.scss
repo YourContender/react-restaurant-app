@@ -25,6 +25,10 @@
                 border: 2px solid #E1B168;
                 background-color: #E1B168;
             }
+            &:active {
+                background-color: #292E36;
+                color: #fff;
+            }
         }
     }
     &_filters {

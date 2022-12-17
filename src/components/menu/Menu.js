@@ -28,8 +28,8 @@ const Menu = () => {
         setCurrentItem([data]);
     }
 
-    const incDecCalc = () => {
-        return setCount(count + 5);
+    const incDecCalc = (action) => {
+        return action === 'plus' ? setCount(count + 5) : setCount(count - 5);
     }
 
     const filteredMenu = () => {
@@ -41,12 +41,12 @@ const Menu = () => {
                 );
             case 'kitchen' :
                 return setFragmentList(
-                    fullListMenu
+                    [...fullListMenu]
                         .filter(item => item.category === 'kitchen')
                 )
             case 'bar' :
                 return setFragmentList(
-                    fullListMenu
+                    [...fullListMenu]
                         .filter(item => item.category === 'bar')
                     )
             case 'sale' :
@@ -63,18 +63,15 @@ const Menu = () => {
 
     useEffect(() => {
         filteredMenu();
-        setCount(count)
+        setCount(count);
     }, [filter]);
 
     useEffect(() => {
         if (count > fullListMenu.length + 5) {
             return setCount(5);
         }
-
-        setFragmentList(
-            [...fullListMenu]
-                .slice(count - 5, count)
-        );
+        
+        filteredMenu();
     }, [count]);
 
     return (
