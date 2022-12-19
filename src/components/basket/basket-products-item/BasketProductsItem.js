@@ -1,7 +1,9 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight, faAngleLeft, faTrash } from '@fortawesome/free-solid-svg-icons';
 
-const BasketProductsItem = ({ listBasket, incDecCalc, removeCurrentProduct }) => {
+const BasketProductsItem = ({ 
+    listBasket, incDecCalc, removeCurrentProduct 
+}) => {
     return (
         <div className="basket_products">
             {
@@ -9,7 +11,10 @@ const BasketProductsItem = ({ listBasket, incDecCalc, removeCurrentProduct }) =>
                     return (
                         <div className="basket_products_list" key={item.id}>
                             <div className="basket_products_list_logo">
-                                <img src={item.photo} alt="item photo" />
+                                <img 
+                                    src={item.photo} 
+                                    alt="item photo" 
+                                />
                             </div>
 
                             <div className="basket_products_list_title">
@@ -49,7 +54,9 @@ const BasketProductsItem = ({ listBasket, incDecCalc, removeCurrentProduct }) =>
                             </div>
 
                             <div className="basket_products_list_price">
-                                <h3>{parseInt(item.price, 10) * +item.quantity}$</h3>
+                                <h3>
+                                    {parseInt(item.price, 10) * +item.quantity}$
+                                </h3>
                             </div>
 
                             <div className="basket_products_list_remove">

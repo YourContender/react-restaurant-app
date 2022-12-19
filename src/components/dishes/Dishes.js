@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { useState } from 'react';
+import DishesItem from './dishes-item/DishesItem';
 import './Dishes.scss';
 
 const Dishes = () => {
@@ -38,30 +39,12 @@ const Dishes = () => {
                 <div className="dishes_menu">
                     {
                         listMenu.map(item => {
-                            return (
-                                <div className="dishes_menu_item">
-                                    <div className="dishes_img">
-                                        <img src={item.photo} alt="dishes 1" />
-                                    </div>
-
-                                    <div className="dishes_text">
-                                        <div>
-                                            <h2>{item.title}</h2>
-                                        </div>
-                                        <div>
-                                            <span>{item.price}$</span>
-                                        </div>
-                                    </div>
-                                    
-                                    <div className="dishes_line"></div>
-
-                                    <div className="dishes_descr">
-                                        <p>
-                                            {item.descr}
-                                        </p>
-                                    </div>
-                                </div>
-                            )
+                            return <DishesItem 
+                                photo={item.photo} 
+                                title={item.title} 
+                                price={item.price} 
+                                descr={item.descr}
+                            />
                         })
                     }
                 </div>

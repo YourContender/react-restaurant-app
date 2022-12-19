@@ -1,13 +1,17 @@
 import { useEffect, useState } from 'react';
 import BasketModal from './basket-modal/BasketModal';
-import './Basket.scss';
 import BasketProductsItem from './basket-products-item/BasketProductsItem';
+import BasketSideMenu from './basket-side-menu/BasketSideMenu';
+import spinner from '../../img/spinner.gif';
+import empty_card from '../../img/empty_cart.png';
+import './Basket.scss';
 
 function Basket() {
     const [listBasket, setListBasket] = useState([]);
     const [priceOrder, setPriceOrder] = useState(0);
     const [promoCode, setPromoCode] = useState('');
     const [displayModal, setDisplayModal] = useState(false);
+    const [gifSpinner, setGifSpinner] = useState(false);
 
     const getSumPriceOrder = () => {
         let sum = 0;
@@ -22,15 +26,15 @@ function Basket() {
     }
 
     const calcDeliveryPrice = () => {
-        return priceOrder > 500 ? 0 : priceOrder * 0.1;
+        return priceOrder >= 500 ? 0 : priceOrder * 0.1;
     }
 
     const calcTotalSum = () => {
-        if (promoCode === '777' && priceOrder < 500) {
+        if (promoCode === '777' && priceOrder <= 500) {
             return calcPriceWithPromoCode() + calcDeliveryPrice();
-        } else if (promoCode === '777' && priceOrder > 500) {
+        } else if (promoCode === '777' && priceOrder >= 500) {
             return calcPriceWithPromoCode();
-        } else if (promoCode === '' && priceOrder > 500) {
+        } else if (promoCode === '' && priceOrder >= 500) {
             return priceOrder;
         } else {
             return priceOrder + calcDeliveryPrice();
@@ -49,6 +53,7 @@ function Basket() {
     }
 
     const removeCurrentProduct = async (id) => {
+        setGifSpinner(true);
         console.log('remove: ', id);
         let filtered = listBasket.filter(item => item.id !== id);
 
@@ -57,7 +62,10 @@ function Basket() {
         });
 
         if (res.status === 200) {
-            setListBasket(filtered);
+            setTimeout(() => {
+                setListBasket(filtered);
+                setGifSpinner(false);
+            }, 1500)
         }
     }
 
@@ -108,85 +116,40 @@ function Basket() {
     return (
         <div className="basket">
             {
-                displayModal ? 
+                gifSpinner && 
+                    <img 
+                        className="spinner"
+                        src={spinner}
+                    />
+            }
+            {
+                displayModal &&
                     <BasketModal 
                         setDisplayModal={setDisplayModal}
                         listBasket={listBasket}
                         calcTotalSum={calcTotalSum}
-                    /> : null
+                    />
             } 
 
-            <BasketProductsItem listBasket={listBasket} incDecCalc={incDecCalc} removeCurrentProduct={removeCurrentProduct}/>
+            {
+                listBasket.length !== 0 ? 
+                    <BasketProductsItem 
+                        listBasket={listBasket} 
+                        incDecCalc={incDecCalc} 
+                        removeCurrentProduct={removeCurrentProduct}
+                    /> : 
+                    <img src={empty_card}/> 
+            }
 
-            <div className="basket_order">
-                <div className="basket_order_promo">
-                    <div>
-                        <span>Promo code</span>
-                    </div>
-
-                    <div>
-                        <input 
-                            type="text" 
-                            placeholder="enter promo code"
-                            onChange={(e) => setPromoCode(e.target.value)}
-                        />
-                    </div>
-
-                    <button>apply promo code</button>
-                </div>
-
-                <div className="basket_order_line"></div>
-
-                <div className="basket_order_price">
-                    <div className="basket_order_price_item">
-                        {
-                            (promoCode === '777') ? (
-                                <div>
-                                    <div>
-                                        <span className="promo_code">
-                                            price with promo code : <br/>
-                                            {calcPriceWithPromoCode()}$
-                                        </span>
-                                    </div>
-                                    
-                                    <div className="promo_code_message">
-                                        <span>
-                                            20% to the total cost of products
-                                        </span>
-                                    </div>
-                                </div>
-
-                                ) : (
-                    
-                                <span>
-                                    order price : {priceOrder}$
-                                </span> )
-                        }
-                    </div>
-
-                    <div>
-                        <span>
-                            delivery price : {calcDeliveryPrice()}$ 
-                        </span>
-                    </div>
-
-                    <div className="basket_order_line"></div>
-                    
-                    <div>
-                        <h2>
-                            total: {calcTotalSum()}$
-                        </h2>
-                    </div>
-                </div>
-
-                <div className="basket_order_message">
-                    <button
-                        onClick={() => setDisplayModal(true)}
-                    >
-                        design
-                    </button>
-                </div>
-            </div>
+            <BasketSideMenu
+                setPromoCode={setPromoCode}
+                promoCode={promoCode}
+                calcPriceWithPromoCode={calcPriceWithPromoCode}
+                calcDeliveryPrice={calcDeliveryPrice}
+                priceOrder={priceOrder}
+                calcTotalSum={calcTotalSum}
+                setDisplayModal={setDisplayModal}
+            />
         </div>
     )
 }
