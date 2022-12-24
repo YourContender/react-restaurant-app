@@ -1,8 +1,9 @@
 import CurrentElementView from "./CurrentElementView";
 
 const CurrentElement = ({ currentItem }) => {
+    const item = currentItem[0];
+
     const addCurrentProduct = async (elem) => { 
-        console.log('elem: ', elem);
         const res = await fetch('https://635594e2483f5d2df3b72711.mockapi.io/basket', {
             method: 'POST',
             body: JSON.stringify({
@@ -23,18 +24,10 @@ const CurrentElement = ({ currentItem }) => {
 
     return (
         <>
-            {
-                currentItem.map(item => {
-                    return (
-                        <CurrentElementView 
-                            key={item.id} 
-                            item={item} 
-                            currentItem={currentItem}
-                            addCurrentProduct={addCurrentProduct}
-                        />
-                    )
-                })
-            }
+            <CurrentElementView  
+                item={item} 
+                addCurrentProduct={addCurrentProduct}
+            />
         </>
     )
 }

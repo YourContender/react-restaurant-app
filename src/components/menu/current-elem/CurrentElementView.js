@@ -40,7 +40,7 @@ const CurrentElementView = ({ item, currentItem, addCurrentProduct }) => {
             { doneOrder && <TextModal/> }
 
             {
-                currentItem[0].id !== 'init' &&
+                currentItem !== '' &&
                     <div className="menu_order">
                         <button
                             onClick={() => orderCurrentProduct(item)}

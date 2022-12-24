@@ -1,7 +1,9 @@
-import { initValue } from '../../data';
 import { useState, useEffect } from 'react';
+import { initValue } from '../../data';
+import { Request } from '../../request';
 import Buttons from './buttons/Buttons';
 import CurrentElement from './current-elem/CurrentElement';
+import InitItem from './current-elem/InitItem';
 import Filter from './filter/Filter';
 import ItemMenu from './item-menu/ItemMenu';
 import './Menu.scss';
@@ -12,21 +14,26 @@ const Menu = () => {
     const [fragmentList, setFragmentList] = useState([]);
     const [currentItem, setCurrentItem] = useState(initValue);
     const [filter, setFilter] = useState('all');
+    const [currentId, setCurrentId] = useState(0);
 
-    const getFullListMenu = async () => {
-        const response = await fetch('https://635594e2483f5d2df3b72711.mockapi.io/menu');
-        const data = await response.json();
-
-        setFullListMenu(data);
-        setFragmentList([...data].filter(item => item.id <= 5))
-    }
+    const data = new Request();
     
-    const getCurrentItemFromList = async (id) => {
-        const response = await fetch(`https://635594e2483f5d2df3b72711.mockapi.io/menu/${id}`);
-        const data = await response.json();
+    useEffect(() => {
+        data 
+            .getFullListMenu()
+            .then((res) => {
+                setFullListMenu(res)
+                setFragmentList([...res].filter(item => item.id <= 5))
+            })
+    }, []);
 
-        setCurrentItem([data]);
-    }
+    useEffect(() => {
+        data
+            .getCurrentItemFromList(+currentId)
+            .then((res) => {
+                setCurrentItem([res]);
+            })
+    }, [currentId]);
 
     const incDecCalc = (action) => {
         return action === 'plus' ? setCount(count + 5) : setCount(count - 5);
@@ -58,10 +65,6 @@ const Menu = () => {
     }
 
     useEffect(() => {
-        getFullListMenu();
-    }, []);
-
-    useEffect(() => {
         filteredMenu();
         setCount(count);
     }, [filter]);
@@ -76,9 +79,13 @@ const Menu = () => {
 
     return (
         <div className="menu">
-            <CurrentElement 
-                currentItem={currentItem} 
-            />
+            {
+                currentId === 0 ? 
+                    <InitItem /> :
+                        <CurrentElement 
+                            currentItem={currentItem} 
+                        />
+            }
 
             <div className="menu_container">
                 <div>
@@ -90,7 +97,7 @@ const Menu = () => {
                     
                     <ItemMenu 
                         fragmentList={fragmentList} 
-                        getCurrentItemFromList={getCurrentItemFromList}
+                        setCurrentId={setCurrentId}
                     />
 
                     <Buttons 

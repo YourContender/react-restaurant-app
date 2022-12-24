@@ -1,11 +1,11 @@
-const ItemMenuView = ({ item, getCurrentItemFromList }) => {
+const ItemMenuView = ({ item, setCurrentId }) => {
     const { id, photo, title, descr, price } = item;
 
     return (
         <div 
             className="menu_descr" 
             key={id}
-            onClick={() => getCurrentItemFromList(id)}
+            onClick={() => setCurrentId(id)}
         >  
             <div className="menu_descr_container">
                 <div>
