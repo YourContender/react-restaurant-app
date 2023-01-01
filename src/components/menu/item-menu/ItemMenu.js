@@ -1,6 +1,6 @@
 import ItemMenuView from "./ItemMenuView";
 
-const ItemMenu = ({ fragmentList, setCurrentId }) => {
+const ItemMenu = ({ fragmentList, targetCurrentElement }) => {
     return (
         <>
             {
@@ -9,7 +9,7 @@ const ItemMenu = ({ fragmentList, setCurrentId }) => {
                         <ItemMenuView 
                             item={item} 
                             key={item.id}
-                            setCurrentId={setCurrentId}
+                            targetCurrentElement={targetCurrentElement}
                         />
                     )
                 })

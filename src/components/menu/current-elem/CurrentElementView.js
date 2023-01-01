@@ -1,15 +1,7 @@
 import { useState } from "react";
 import TextModal from "../../modal/text-modal/TextModal";
 
-const CurrentElementView = ({ item, currentItem, addCurrentProduct }) => {
-    const [doneOrder, setDoneOrder] = useState(false);
-
-    const orderCurrentProduct = () => {
-        setDoneOrder(true);
-
-        return addCurrentProduct(item);
-    }
-
+const CurrentElementView = ({ item, currentItem, doneOrder, orderCurrentProduct }) => {
     return (
         <div className="menu_target" key={item.id}>
             <div>
