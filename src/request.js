@@ -13,7 +13,6 @@ export class Request {
     };
 
     addCurrentProduct = async (elem) => { 
-        console.log('element', elem);
         const res = await fetch(`${this.API_basket}`, {
             method: 'POST',
             body: JSON.stringify({

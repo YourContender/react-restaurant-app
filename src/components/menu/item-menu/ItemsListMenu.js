@@ -1,6 +1,6 @@
-import ItemMenuView from "./ItemMenuView";
+import ItemMenuView from "./ItemProduct";
 
-const ItemMenu = ({ fragmentList, targetCurrentElement }) => {
+const ItemsListMenu = ({ fragmentList, targetCurrentElement }) => {
     return (
         <>
             {
@@ -18,4 +18,4 @@ const ItemMenu = ({ fragmentList, targetCurrentElement }) => {
     )
 }
 
-export default ItemMenu;
+export default ItemsListMenu;

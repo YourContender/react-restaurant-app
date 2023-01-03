@@ -2,8 +2,11 @@
     display: flex;
     justify-content: center;
     background-color: #fff;
-    padding-top: 20px;
-    min-height: 90vh;
+    min-height: 600px;
+    &_list {
+        display: flex;
+        flex-direction: column;
+    }
     &_order {
         margin-top: 35px;
         display: flex;
@@ -33,8 +36,8 @@
     }
     &_filters {
         display: flex;
-        justify-content: space-between;
-        margin-bottom: 40px;
+        justify-content: space-around;
+        margin-bottom: 20px;
         button {
             width: 120px;
             height: 50px;
@@ -56,7 +59,7 @@
     &_btns {
         display: flex;
         justify-content: center;
-        margin-top: 30px;
+        margin-top: 10px;
         a {
             text-transform: uppercase;
             font-size: 28px;
@@ -92,21 +95,42 @@
         margin-top: 50px;
         margin-bottom: 50px;
     }
-    &_descr {
-        display: flex;
+    &_item_100, &_item_250 {
+        // display: flex;
         align-items: center;
         justify-content: space-between;
         margin-top: 20px;
+        width: 900px;
+        border: 1px solid gray;
+        transition: .8s ease-in;
+        padding: 5px;
         &_container {
             display: flex;
             align-items: center;
+            justify-content: space-between;
+            width: 900px;
             cursor: pointer;
             img {
+                padding-left: 20px;
                 width: 80px;
                 height: 90px;
                 border-radius: 20px;
             }
         }
+    }
+    &_item_250 {
+        align-items: flex-start;
+        height: 250px;
+        &_price {
+            margin-top: 20px;
+        }
+    }
+    &_item_arrow_100, &_item_arrow_250 {
+        font-size: 30px;
+        padding-right: 24px;
+    }
+    &_item_arrow_250 {
+        margin-top: 25px;
     }
     &_target {
         margin-right: 100px;
@@ -151,7 +175,8 @@
         }
     }
     &_container {
-        min-width: 600px;
+        min-width: 600px;    
+        min-height: 845px;
         h4 {
             font-family: 'Cormorant Infant';
             font-style: normal;
@@ -184,6 +209,14 @@
             letter-spacing: 0.2px;
             color: #555555;
             margin-top: 0;
+        }
+    }
+    &_descr {
+        &_item {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            padding: 0 40px;
         }
     }
 }

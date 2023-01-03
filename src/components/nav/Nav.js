@@ -1,10 +1,10 @@
+import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import inst from '../../img/icons/inst.png';
 import fb from '../../img/icons/fb.png';
 import tw from '../../img/icons/tw.png';
 import pt from '../../img/icons/pt.png';
-import { Link } from 'react-router-dom';
 import './Nav.scss';
-import { useEffect, useState } from 'react';
 
 const Nav = () => {
     const [listOrder, setListOrder] = useState([]);

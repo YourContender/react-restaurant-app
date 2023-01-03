@@ -5,7 +5,7 @@ import Buttons from './buttons/Buttons';
 import CurrentElement from './current-elem/CurrentElement';
 import InitItem from './current-elem/InitItem';
 import Filter from './filter/Filter';
-import ItemMenu from './item-menu/ItemMenu';
+import ItemsListMenu from './item-menu/ItemsListMenu';
 import './Menu.scss';
 
 const Menu = () => {
@@ -80,13 +80,13 @@ const Menu = () => {
 
     return (
         <div className="menu">
-            {
+            {/* {
                 displayInitCurrentItem === 0 ? 
                     <InitItem /> :
                         <CurrentElement 
                             currentItem={currentItem} 
                         />
-            }
+            } */}
 
             <div className="menu_container">
                 <div>
@@ -96,7 +96,7 @@ const Menu = () => {
                         setFilter={setFilter}
                     />
                     
-                    <ItemMenu 
+                    <ItemsListMenu 
                         fragmentList={fragmentList} 
                         targetCurrentElement={targetCurrentElement}
                     />
