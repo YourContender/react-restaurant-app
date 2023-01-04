@@ -1,24 +1,22 @@
-const ItemProductDescr = ({ compound }) => {
+const ItemProductDescr = ({ compound, orderCurrentProduct }) => {
     return (
         <div className="menu_descr_item">
-            <div>
-                <ul>
-                    {
-                        compound.map(elem => {
-                            return (
-                                <li key={elem}>
-                                    {elem}
-                                </li>
-                            )
-                        })
-                    }
-                </ul>
-            </div>
+            <ul>
+                {
+                    compound.map(elem => {
+                        return (
+                            <li key={elem}>
+                                {elem}
+                            </li>
+                        )
+                    })
+                }
+            </ul>
 
             <div>
                 <div className="menu_order">
                     <button
-                        // onClick={() => orderCurrentProduct(item)}
+                        onClick={() => orderCurrentProduct()}
                     >
                         Order
                     </button>

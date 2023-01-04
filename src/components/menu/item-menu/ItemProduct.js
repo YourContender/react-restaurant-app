@@ -2,6 +2,7 @@ import { useState } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowUp, faArrowDown } from '@fortawesome/free-solid-svg-icons';
 import ItemProductDescr from "./description-product/ItemProductDescr";
+import { Request } from "../../../request";
 
 const ItemProduct = ({ item, targetCurrentElement }) => {
     const { id, photo, title, descr, price, compound } = item;
@@ -10,8 +11,14 @@ const ItemProduct = ({ item, targetCurrentElement }) => {
     const nameClass = !testClick ? 'menu_item_100' : 'menu_item_250';
     const upOrDownArrow = testClick ? "menu_item_arrow_250" : "menu_item_arrow_100";
     const marginPrice = testClick ? "menu_item_250_price" : undefined;
+    const marginTitle = testClick ? "menu_item_250_title" : undefined;
 
-    console.log('compound: ',  item);
+    const data = new Request();
+
+    const orderCurrentProduct = () => {
+        data 
+            .addCurrentProduct(item)
+    }
 
     return (
         <div>
@@ -25,7 +32,7 @@ const ItemProduct = ({ item, targetCurrentElement }) => {
                         <img src={photo} alt="star" />
                     </div>
                     
-                    <div>
+                    <div className={marginTitle}>
                         <span>{title}</span><br/>
                         <p>{descr}</p>
                     </div>
@@ -44,7 +51,11 @@ const ItemProduct = ({ item, targetCurrentElement }) => {
 
 
                 {
-                    testClick && <ItemProductDescr compound={compound}/>
+                    testClick && 
+                        <ItemProductDescr 
+                            compound={compound}
+                            orderCurrentProduct={orderCurrentProduct}    
+                        />
                 }
             </div>
 

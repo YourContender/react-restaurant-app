@@ -8,14 +8,14 @@
         flex-direction: column;
     }
     &_order {
-        margin-top: 35px;
+        margin-top: 24px;
         display: flex;
         margin-left: 25px;
         button {
-            width: 140px;
-            height: 60px;
+            width: 120px;
+            height: 50px;
             font-family: 'Cormorant Infant';
-            font-size: 28px;
+            font-size: 22px;
             letter-spacing: 3px;
             text-transform: uppercase;
             border: 2px solid #292E36;
@@ -111,7 +111,7 @@
             width: 900px;
             cursor: pointer;
             img {
-                padding-left: 20px;
+                margin-left: 20px;
                 width: 80px;
                 height: 90px;
                 border-radius: 20px;
@@ -120,18 +120,24 @@
     }
     &_item_250 {
         align-items: flex-start;
-        height: 250px;
-        &_price {
-            margin-top: 20px;
+        height: 280px;
+        &_title {
+            margin-left: 20%;
+        }
+        img {
+            position: absolute;
+            width: 196px;
+            height: 220px;
+            margin-top: -20px;
         }
     }
     &_item_arrow_100, &_item_arrow_250 {
         font-size: 30px;
         padding-right: 24px;
     }
-    &_item_arrow_250 {
-        margin-top: 25px;
-    }
+    // &_item_arrow_250 {
+    //     // margin-top: 25px;
+    // }
     &_target {
         margin-right: 100px;
         width: 500px;
@@ -217,6 +223,10 @@
             justify-content: space-between;
             margin-top: 20px;
             padding: 0 40px;
+            ul {
+                margin-top: -10px;
+                margin-left: 27%;
+            }
         }
     }
 }

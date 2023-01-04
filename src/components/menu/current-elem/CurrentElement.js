@@ -9,7 +9,6 @@ const CurrentElement = ({ currentItem }) => {
     const item = currentItem[0];
 
     const orderCurrentProduct = () => {
-        setDoneOrder(true);
         data 
             .addCurrentProduct(item)
     }
