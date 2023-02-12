@@ -34,7 +34,7 @@ const Nav = () => {
                         <Link to="/menu">Our Menu</Link>
                     </div>
                     <div>
-                        <Link to="/dishes">Popular Dishes</Link>
+                        <Link to="/dishes">Offers</Link>
                     </div>
                     <div>
                         <Link to="/blog">Blog</Link>

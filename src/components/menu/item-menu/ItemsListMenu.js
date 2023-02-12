@@ -1,15 +1,14 @@
-import ItemMenuView from "./ItemProduct";
+import ItemProduct from "./ItemProduct";
 
-const ItemsListMenu = ({ fragmentList, targetCurrentElement }) => {
+const ItemsListMenu = ({ fragmentList }) => {
     return (
         <>
             {
                 fragmentList.map(item => {
                     return (
-                        <ItemMenuView 
+                        <ItemProduct
                             item={item} 
                             key={item.id}
-                            targetCurrentElement={targetCurrentElement}
                         />
                     )
                 })
