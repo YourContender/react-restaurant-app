@@ -29,10 +29,12 @@ const ItemProduct = ({ item }) => {
                 'Content-Type': 'application/json'
             }
         });    
+        setHandleClick(true)
     }
-
+    
     const orderCurrentProduct = () => {
-        return addCurrentProduct(item);
+        addCurrentProduct(item);
+        setHandleClick(true)
     }
 
     return (
@@ -40,9 +42,12 @@ const ItemProduct = ({ item }) => {
             <div 
                 className={nameClass} 
                 key={id}
-                onClick={() => setHandleClick(!handleClick)}  
+  
             >  
-                <div className='menu_item_100_container'>
+                <div 
+                    className='menu_item_100_container'
+                    onClick={() => setHandleClick(!handleClick)}
+                >
                     <div>
                         <img src={photo} alt="star" />
                     </div>
@@ -67,7 +72,7 @@ const ItemProduct = ({ item }) => {
                     handleClick && 
                         <ItemProductDescr 
                             compound={compound}
-                            orderCurrentProduct={orderCurrentProduct}    
+                            orderCurrentProduct={orderCurrentProduct}  
                         />
                 }
             </div>

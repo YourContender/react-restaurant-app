@@ -51,7 +51,7 @@
         top: 40%;
         left: 50%;
         transform: translate(-50%, -50%);
-        background-color: #2f4f4f;
+        background-color: #292E36;
         // background: url('../../../img/modal/basket.jpg') no-repeat 50%/cover;
         color: #fff;
         &_list {
@@ -109,7 +109,8 @@
                 height: 40px;
             }
             &_container {
-                background-color:  rgba(0, 0, 0, 0.288);
+                color: #000;
+                background-color:#fffffff3;
                 height: 250px;
                 overflow-y: scroll;
                 &::-webkit-scrollbar {

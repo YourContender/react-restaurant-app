@@ -83,6 +83,10 @@ const About = () => {
                     </div>
                 </div>
             </div>
+
+            <div className="about_map">
+                <iframe className="about_map_place" src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d7424.996785362021!2d30.54722047909498!3d50.44591173288403!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sru!2sua!4v1676420440060!5m2!1sru!2sua" width="600" height="450"></iframe>
+            </div>
         </div>
     )
 }

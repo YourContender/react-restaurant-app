@@ -7,6 +7,16 @@
     flex-direction: column;
     justify-content: center;
     padding: 80px 0;
+    &_map {
+        display: flex;
+        justify-content: center;
+        border: none;
+        width: 1440px;
+        &_place {
+            width: 1240px;
+            height: 500px;
+        }
+    }
     &_container {
         display: flex;
     }
@@ -87,7 +97,7 @@
         }
     }
     &_footer {
-        margin-top: 60px;
+        margin: 60px 0;
         display: flex;
         justify-content: center;
         &_item {

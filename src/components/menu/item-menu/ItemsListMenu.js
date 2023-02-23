@@ -1,17 +1,19 @@
 import ItemProduct from "./ItemProduct";
 
-const ItemsListMenu = ({ fragmentList }) => {
+const ItemsListMenu = ({ testRedux, fragmentList }) => {
+    // console.log('test Redux: ', testRedux ? testRedux : null)
+
     return (
         <>
             {
-                fragmentList.map(item => {
+                fragmentList ? fragmentList.map(item => {
                     return (
                         <ItemProduct
                             item={item} 
                             key={item.id}
                         />
                     )
-                })
+                }) : null
             }   
         </>
     )
