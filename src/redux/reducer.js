@@ -1,5 +1,6 @@
 const initialState = {
-    menu: []
+    menu: [],
+    basket: []
 };
 
 const reducer = (state = initialState, action) => {
@@ -10,7 +11,22 @@ const reducer = (state = initialState, action) => {
                 ...state, 
                 menu: action.payload
             }
-        
+        case 'GET_BASKET':
+            return {
+                ...state, 
+                basket: action.payload
+            }
+        case 'DELETE':
+            return {
+                ...state,
+                basket: action.payload
+            }
+        case 'CHANGE_ORDER':
+            return {
+                ...state,
+                basket: action.payload
+            }
+
         default:
             return state
     }

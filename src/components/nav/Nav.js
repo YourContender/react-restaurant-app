@@ -1,5 +1,6 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import inst from '../../img/icons/inst.png';
 import fb from '../../img/icons/fb.png';
 import tw from '../../img/icons/tw.png';
@@ -7,18 +8,19 @@ import pt from '../../img/icons/pt.png';
 import './Nav.scss';
 
 const Nav = () => {
-    const [listOrder, setListOrder] = useState([]);
+    const { basket } = useSelector(state => state);
 
-    const getOrderList = async () => {
-        const res = await fetch('https://635594e2483f5d2df3b72711.mockapi.io/basket');
-        const data = await res.json();
-
-        setListOrder(data);
+    const displayQuantityProductsOrder = () => {
+        return (
+            <span>
+                {basket.length >= 1 && 'x' + basket.length}
+            </span>
+        )
     }
 
     useEffect(() => {
-        getOrderList();
-    }, [])
+        displayQuantityProductsOrder();
+    }, [basket])
 
     return (
         <div className='nav'>
@@ -42,7 +44,7 @@ const Nav = () => {
                     <div>
                         <Link to="/basket">
                             Basket 
-                            <span>{listOrder.length >= 1 ? 'x' + listOrder.length : null}</span>
+                            { displayQuantityProductsOrder() }
                         </Link>
                     </div>                
                 </div>

@@ -7,14 +7,12 @@ import './Menu.scss';
 
 const Menu = () => {
     const [fragmentList, setFragmentList] = useState([]);
-    
-    const [testRedux, setTestRedux] = useState([]);
     const [filter, setFilter] = useState('all');
     const { menu } = useSelector(elem => elem);
     const dispatch = useDispatch();
 
     useEffect(() => {
-        getFullListMenuPositions(menu);
+        setFragmentList(menu)
     }, [menu]);
 
     useEffect(() => {
@@ -37,31 +35,27 @@ const Menu = () => {
     }, [filter]);
 
     const filteredMenu = () => {
-
-        // switch (filter) {
-        //     case 'all' :
-        //         return setFragmentList(
-        //             [...menu]
-        //         );
-        //     case 'kitchen' :
-        //         return setFragmentList(
-        //             [...menu]
-        //                 .filter(item => item.category === 'kitchen')
-        //         )
-        //     case 'bar' :
-        //         return setFragmentList(
-        //             [...menu]
-        //                 .filter(item => item.category === 'bar')
-        //             )
-        //     case 'sale' :
-        //         return setFragmentList(
-        //             [...menu]
-        //                 .filter(item => item.category === 'sale')
-        //         )
-        // }
-    }
-    const getFullListMenuPositions = (arr) => {
-        return setTestRedux(arr);
+        switch (filter) {
+            case 'all' :
+                return setFragmentList(
+                    [...menu]
+                );
+            case 'kitchen' :
+                return setFragmentList(
+                    [...menu]
+                        .filter(item => item.category === 'kitchen')
+                )
+            case 'bar' :
+                return setFragmentList(
+                    [...menu]
+                        .filter(item => item.category === 'bar')
+                    )
+            case 'sale' :
+                return setFragmentList(
+                    [...menu]
+                        .filter(item => item.category === 'sale')
+                )
+        }
     }
 
     return (
@@ -71,12 +65,12 @@ const Menu = () => {
                     <div className="menu_container_title">
                         <h4>Base menu</h4>
                     </div>
+
                     <Filter 
                         setFilter={setFilter}
                     />
                     
                     <ItemsListMenu 
-                        // testRedux={testRedux}
                         fragmentList={fragmentList}
                     />
                 </div>

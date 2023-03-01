@@ -1,13 +1,21 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight, faAngleLeft, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
 
 const BasketProductsItem = ({ 
     listBasket, incDecCalc, removeCurrentProduct 
 }) => {
+    const { basket } = useSelector(state => state);
+
+    useEffect(() => {
+        console.log('basket >>>>', basket)
+    }, [])
+
     return (
         <div className="basket_products">
             {
-                listBasket.map(item => {
+                basket.map(item => {
                     return (
                         <div className="basket_products_list" key={item.id}>
                             <div className="basket_products_list_logo">

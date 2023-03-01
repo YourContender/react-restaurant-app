@@ -1,22 +1,27 @@
+import { changeQuantityOrder, getBasketList, removeProductFromBasket } from '../../redux/actions';
+import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
-import BasketModal from './basket-modal/BasketModal';
 import BasketProductsItem from './basket-products-item/BasketProductsItem';
 import BasketSideMenu from './basket-side-menu/BasketSideMenu';
-import spinner from '../../img/spinner.gif';
+import BasketModal from './basket-modal/BasketModal';
 import empty_card from '../../img/empty_cart.png';
+import spinner from '../../img/spinner.gif';
 import './Basket.scss';
 
 function Basket() {
-    const [listBasket, setListBasket] = useState([]);
     const [priceOrder, setPriceOrder] = useState(0);
     const [promoCode, setPromoCode] = useState('');
     const [displayModal, setDisplayModal] = useState(false);
     const [gifSpinner, setGifSpinner] = useState(false);
 
+    const { basket } = useSelector(state => state)
+
+    const dispatch = useDispatch();
+
     const getSumPriceOrder = () => {
         let sum = 0;
 
-        listBasket.forEach(item => sum += item.price * item.quantity);
+        basket.forEach(item => sum += item.price * item.quantity);
     
         return setPriceOrder(sum);
     }
@@ -43,19 +48,22 @@ function Basket() {
 
     useEffect(() => {
         getSumPriceOrder();
-    }, [listBasket])
+    }, [basket])
 
-    const getOrderList = async () => {
-        const res = await fetch('https://635594e2483f5d2df3b72711.mockapi.io/basket');
-        const data = await res.json();
+    const getBasketListProducts = async () => {
+        try {
+            const response = await fetch('https://635594e2483f5d2df3b72711.mockapi.io/basket');
+            const data = await response.json();
 
-        setListBasket(data);
+            return dispatch(getBasketList(data));
+        } catch {
+            console.log('error');
+        }
     }
 
     const removeCurrentProduct = async (id) => {
         setGifSpinner(true);
-        console.log('remove: ', id);
-        let filtered = listBasket.filter(item => item.id !== id);
+        let filtered = basket.filter(item => item.id !== id);
 
         const res = await fetch(`https://635594e2483f5d2df3b72711.mockapi.io/basket/${id}`, {
             method: 'DELETE'
@@ -63,14 +71,14 @@ function Basket() {
 
         if (res.status === 200) {
             setTimeout(() => {
-                setListBasket(filtered);
+                dispatch(removeProductFromBasket(filtered));
                 setGifSpinner(false);
             }, 1500)
         }
     }
 
     const incDecCalc = async (elem, action) => {
-        let filtered = listBasket.map(item => {
+        let filtered = basket.map(item => {
             if (item.id === elem.id) {
                 return {
                     photo: item.photo,
@@ -105,13 +113,13 @@ function Basket() {
         })
 
         if (res.status === 200) {
-            setListBasket(filtered);
+            dispatch(changeQuantityOrder(filtered));
         }
     }
 
     useEffect(() => {
-        getOrderList();
-    }, []);
+        getBasketListProducts();
+    }, [])
 
     return (
         <div className="basket">
@@ -126,15 +134,15 @@ function Basket() {
                 displayModal &&
                     <BasketModal 
                         setDisplayModal={setDisplayModal}
-                        listBasket={listBasket}
+                        listBasket={basket}
                         calcTotalSum={calcTotalSum}
                     />
             } 
 
             {
-                listBasket.length !== 0 ? 
+                basket.length !== 0 ? 
                     <BasketProductsItem 
-                        listBasket={listBasket} 
+                        listBasket={basket} 
                         incDecCalc={incDecCalc} 
                         removeCurrentProduct={removeCurrentProduct}
                     /> : 
