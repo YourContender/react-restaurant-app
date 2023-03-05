@@ -1,4 +1,4 @@
-import { changeQuantityOrder, getBasketList, removeProductFromBasket } from '../../redux/actions';
+import { changeQuantityOrder, getBasketList, removeProductFromBasket } from '../../redux/actions/actions';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import BasketProductsItem from './basket-products-item/BasketProductsItem';
@@ -14,7 +14,7 @@ function Basket() {
     const [displayModal, setDisplayModal] = useState(false);
     const [gifSpinner, setGifSpinner] = useState(false);
 
-    const { basket } = useSelector(state => state)
+    const { basket } = useSelector(state => state.basket)
 
     const dispatch = useDispatch();
 

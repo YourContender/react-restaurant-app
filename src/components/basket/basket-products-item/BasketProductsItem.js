@@ -6,7 +6,7 @@ import { useEffect } from 'react';
 const BasketProductsItem = ({ 
     listBasket, incDecCalc, removeCurrentProduct 
 }) => {
-    const { basket } = useSelector(state => state);
+    const { basket } = useSelector(state => state.basket);
 
     useEffect(() => {
         console.log('basket >>>>', basket)

@@ -1,16 +1,9 @@
 const initialState = {
-    menu: [],
     basket: []
 };
 
-const reducer = (state = initialState, action) => {
-    console.log('reducer >>>>', action)
+const basketReducer = (state = initialState, action) => {
     switch (action.type) {
-        case 'GET':
-            return {
-                ...state, 
-                menu: action.payload
-            }
         case 'GET_BASKET':
             return {
                 ...state, 
@@ -37,4 +30,4 @@ const reducer = (state = initialState, action) => {
     }
 }
 
-export default reducer;
+export default basketReducer;

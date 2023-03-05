@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getFullListMenu } from '../../redux/actions';
+import { getFullListMenu } from '../../redux/actions/actions';
 import Filter from './filter/Filter';
 import ItemsListMenu from './item-menu/ItemsListMenu';
 import './Menu.scss';
@@ -8,11 +8,12 @@ import './Menu.scss';
 const Menu = () => {
     const [fragmentList, setFragmentList] = useState([]);
     const [filter, setFilter] = useState('all');
-    const { menu } = useSelector(elem => elem);
+    const { menu } = useSelector(elem => elem.menu);
     const dispatch = useDispatch();
 
     useEffect(() => {
         setFragmentList(menu)
+        // console.log('this >>>>>', menu)
     }, [menu]);
 
     useEffect(() => {
