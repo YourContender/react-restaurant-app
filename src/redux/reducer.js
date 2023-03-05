@@ -26,6 +26,11 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 basket: action.payload
             }
+        case 'POST_BASKET':
+            return {
+                ...state,
+                basket: [...state.basket, action.payload]
+            }
 
         default:
             return state

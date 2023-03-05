@@ -1,4 +1,13 @@
+import { useState } from "react";
+
 const ItemProductDescr = ({ compound, orderCurrentProduct }) => {
+    const [click, setClick] = useState(false);
+
+    const clickOnOrderButton = () => {
+        orderCurrentProduct();
+        setClick(true);
+    }
+
     return (
         <div className="menu_descr_item">
             <ul>
@@ -15,11 +24,19 @@ const ItemProductDescr = ({ compound, orderCurrentProduct }) => {
 
             <div>
                 <div className="menu_order">
-                    <button
-                        onClick={() => orderCurrentProduct()}
-                    >
-                        Order
-                    </button>
+                    {
+                        (click) ? ( 
+                            <div className="test">
+                                <span>
+                                    your order has been added to the cart
+                                </span>
+                            </div>
+                        ) : (
+                            <button onClick={clickOnOrderButton}>
+                                Order
+                            </button>
+                        )
+                    }
                 </div>
             </div>
         </div>
