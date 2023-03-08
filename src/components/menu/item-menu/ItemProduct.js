@@ -17,32 +17,13 @@ const ItemProduct = ({ item }) => {
     const marginTitle = handleClick ? "menu_item_250_title" : undefined;
 
     const addCurrentProduct = async (elem) => { 
-
-        const data = {
-            photo: elem.photo,
-            title: elem.title,
-            descr: elem.descr,
-            price: elem.price,
-            id: elem.id,
-            category: elem.category,
-            quantity: elem.quantity
-        }
-        const res = await fetch('https://635594e2483f5d2df3b72711.mockapi.io/basket', {
-            method: 'POST',
-            body: JSON.stringify({...data}),
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            }
-        });   
-
-        dispatch(postBasketProduct(data))
-        setHandleClick(true)
+        dispatch(postBasketProduct(elem));
+        setHandleClick(true);
     }
     
     const orderCurrentProduct = () => {
         addCurrentProduct(item);
-        setHandleClick(true)
+        setHandleClick(true);
     }
 
     return (

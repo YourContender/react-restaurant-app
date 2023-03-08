@@ -18,6 +18,14 @@ function Basket() {
 
     const dispatch = useDispatch();
 
+    useEffect(() => {
+        getSumPriceOrder()
+    }, [basket]);
+
+    useEffect(() => {
+        dispatch(getBasketList())
+    }, []);
+
     const getSumPriceOrder = () => {
         let sum = 0;
 
@@ -46,80 +54,19 @@ function Basket() {
         }
     }
 
-    useEffect(() => {
-        getSumPriceOrder();
-    }, [basket])
-
-    const getBasketListProducts = async () => {
-        try {
-            const response = await fetch('https://635594e2483f5d2df3b72711.mockapi.io/basket');
-            const data = await response.json();
-
-            return dispatch(getBasketList(data));
-        } catch {
-            console.log('error');
-        }
-    }
-
     const removeCurrentProduct = async (id) => {
         setGifSpinner(true);
-        let filtered = basket.filter(item => item.id !== id);
 
-        const res = await fetch(`https://635594e2483f5d2df3b72711.mockapi.io/basket/${id}`, {
-            method: 'DELETE'
-        });
+        dispatch(removeProductFromBasket(basket, id));
 
-        if (res.status === 200) {
-            setTimeout(() => {
-                dispatch(removeProductFromBasket(filtered));
-                setGifSpinner(false);
-            }, 1500)
-        }
+        setTimeout(() => {
+            setGifSpinner(false)
+        }, 500);
     }
 
     const incDecCalc = async (elem, action) => {
-        let filtered = basket.map(item => {
-            if (item.id === elem.id) {
-                return {
-                    photo: item.photo,
-                    title: item.title,
-                    descr: item.descr,
-                    price: item.price,
-                    id: item.id,
-                    category: item.category,
-                    quantity: action ? +item.quantity + 1 : item.quantity - 1
-                }
-            }
-            return item;
-        })
-
-        let data = {
-            photo: elem.photo,
-            title: elem.title,
-            descr: elem.descr,
-            price: elem.price,
-            id: elem.id,
-            category: elem.category,
-            quantity: action ? +elem.quantity + 1 : elem.quantity - 1
-        }
-
-        const res = await fetch(`https://635594e2483f5d2df3b72711.mockapi.io/basket/${elem.id}`, {
-            method: 'PUT',
-            body: JSON.stringify(data),
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            }
-        })
-
-        if (res.status === 200) {
-            dispatch(changeQuantityOrder(filtered));
-        }
+        dispatch(changeQuantityOrder(basket, elem, action))
     }
-
-    useEffect(() => {
-        getBasketListProducts();
-    }, [])
 
     return (
         <div className="basket">

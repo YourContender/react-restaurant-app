@@ -12,24 +12,12 @@ const Menu = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        setFragmentList(menu)
-        // console.log('this >>>>>', menu)
+        setFragmentList(menu);
     }, [menu]);
 
     useEffect(() => {
-        fetchData();
+        dispatch(getFullListMenu())
     }, []);
-
-    const fetchData = async () => {
-        try {
-            const response = await fetch('https://635594e2483f5d2df3b72711.mockapi.io/menu');
-            const data = await response.json();
-
-            return dispatch(getFullListMenu(data))
-        } catch {
-            console.log('error')
-        }
-    }
 
     useEffect(() => {
         filteredMenu();

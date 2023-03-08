@@ -10,16 +10,17 @@ import './Nav.scss';
 const Nav = () => {
     const { basket } = useSelector(state => state);
 
-    const displayQuantityProductsOrder = () => {
-        return (
-            <span>
-                {basket.length >= 1 && 'x' + basket.length}
-            </span>
-        )
-    }
+    // const displayQuantityProductsOrder = () => {
+    //     return (
+    //         <span>
+    //             {basket.length >= 1 && 'x' + basket.length}
+    //         </span>
+    //     )
+    // }
 
     useEffect(() => {
-        displayQuantityProductsOrder();
+        // displayQuantityProductsOrder();
+        console.log('basket: ', basket)
     }, [basket])
 
     return (
@@ -44,7 +45,7 @@ const Nav = () => {
                     <div>
                         <Link to="/basket">
                             Basket 
-                            { displayQuantityProductsOrder() }
+                            {/* { displayQuantityProductsOrder() } */}
                         </Link>
                     </div>                
                 </div>
