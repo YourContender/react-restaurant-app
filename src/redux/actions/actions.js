@@ -1,11 +1,22 @@
+import { 
+    CHANGE_ORDER, 
+    DELETE_PRODUCT, 
+    GET_BASKET, 
+    GET_MENU_LIST, 
+    POST_PRODUCT 
+} from "../types/types";
+
+const URL_MENU = 'https://635594e2483f5d2df3b72711.mockapi.io/menu';
+const URL_BASKET = 'https://635594e2483f5d2df3b72711.mockapi.io/basket';
+
 export const getFullListMenu = () => {
     return async dispatch => {
         try {
-            const response = await fetch('https://635594e2483f5d2df3b72711.mockapi.io/menu');
+            const response = await fetch(URL_MENU);
             const data = await response.json();
 
             dispatch({
-                type: 'GET',
+                type: GET_MENU_LIST,
                 payload: data
             })
         } catch {
@@ -17,11 +28,11 @@ export const getFullListMenu = () => {
 export const getBasketList = () => {
     return async dispatch => {
         try {
-            const response = await fetch('https://635594e2483f5d2df3b72711.mockapi.io/basket');
+            const response = await fetch(URL_BASKET);
             const data = await response.json();
 
             return dispatch({
-                type: 'GET_BASKET',
+                type: GET_BASKET,
                 payload: data
             });
         } catch {
@@ -41,7 +52,7 @@ export const postBasketProduct = (elem) => {
             category: elem.category,
             quantity: elem.quantity
         }
-        const res = await fetch('https://635594e2483f5d2df3b72711.mockapi.io/basket', {
+        const res = await fetch(URL_BASKET, {
             method: 'POST',
             body: JSON.stringify({...data}),
             headers: {
@@ -51,7 +62,7 @@ export const postBasketProduct = (elem) => {
         });   
 
         dispatch({
-            type: 'POST_BASKET',
+            type: POST_PRODUCT,
             payload: data
         })
     }
@@ -61,13 +72,13 @@ export const removeProductFromBasket = (basket, id) => {
     return async dispatch => {
         let filtered = basket.filter(item => item.id !== id);
 
-        const res = await fetch(`https://635594e2483f5d2df3b72711.mockapi.io/basket/${id}`, {
+        const res = await fetch(`${URL_BASKET}/${id}`, {
             method: 'DELETE'
         });
 
         if (res.status === 200) {
             dispatch({
-                type: 'DELETE',
+                type: DELETE_PRODUCT,
                 payload: filtered
             })
         }
@@ -101,7 +112,7 @@ export const changeQuantityOrder = (basket, elem, action) => {
             quantity: action ? +elem.quantity + 1 : elem.quantity - 1
         }
 
-        const res = await fetch(`https://635594e2483f5d2df3b72711.mockapi.io/basket/${elem.id}`, {
+        const res = await fetch(`${URL_BASKET}/${elem.id}`, {
             method: 'PUT',
             body: JSON.stringify(data),
             headers: {
@@ -112,7 +123,7 @@ export const changeQuantityOrder = (basket, elem, action) => {
 
         if (res.status === 200) {
             dispatch({
-                type: 'CHANGE_ORDER',
+                type: CHANGE_ORDER,
                 payload: filtered
             });
         }

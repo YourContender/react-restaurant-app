@@ -1,3 +1,10 @@
+import { 
+    CHANGE_ORDER, 
+    DELETE_PRODUCT, 
+    GET_BASKET, 
+    POST_PRODUCT 
+} from "../types/types";
+
 const initialState = {
     basket: []
 };
@@ -5,22 +12,22 @@ const initialState = {
 const basketReducer = (state = initialState, action) => {
     console.log('basket reducer >>>>', action)
     switch (action.type) {
-        case 'GET_BASKET':
+        case GET_BASKET:
             return {
                 ...state, 
                 basket: action.payload
             }
-        case 'DELETE':
+        case DELETE_PRODUCT:
             return {
                 ...state,
                 basket: action.payload
             }
-        case 'CHANGE_ORDER':
+        case CHANGE_ORDER:
             return {
                 ...state,
                 basket: action.payload
             }
-        case 'POST_BASKET':
+        case POST_PRODUCT:
             return {
                 ...state,
                 basket: [...state.basket, action.payload]

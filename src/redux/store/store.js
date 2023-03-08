@@ -1,7 +1,5 @@
-import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
-// import basketReducer from '../reducers/basketReducer';
-// import menuReducer from '../reducers/menuReducer';
 import { rootReducer } from '../reducers/rootReducer';
 
 const store = createStore(rootReducer, compose(
