@@ -1,10 +1,10 @@
 .modal { 
     width: 100%;
     min-height: 90vh;
-    background-color: rgba(0, 0, 0, 0.575);
+    background-color: rgba(0, 0, 0, 0.875);
     overflow-y: hidden;
     &_forms {
-        background-color:  rgba(0, 0, 0, 0.288);
+        background-color: #797e89;
         padding: 20px;
         text-align: center;
         input {
@@ -21,7 +21,7 @@
             color: #fff;
             background: none;
             &::placeholder {
-                color: rgba(255, 255, 255, 0.507);
+                color: #000;
             }
         }
     }
@@ -110,7 +110,7 @@
             }
             &_container {
                 color: #000;
-                background-color:#fffffff3;
+                background-color:#797e89;
                 height: 250px;
                 overflow-y: scroll;
                 &::-webkit-scrollbar {
@@ -135,9 +135,9 @@
             display: flex;
             justify-content: flex-end;
             padding-right: 40px;
-            color: #ffa112;
+            color: #000;
             span {
-                font-size: 24px;
+                font-size: 32px;
             }
         }
     }

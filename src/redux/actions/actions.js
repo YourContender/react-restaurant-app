@@ -1,6 +1,7 @@
 import { 
     CHANGE_ORDER, 
     DELETE_PRODUCT, 
+    FILTER_MENU, 
     GET_BASKET, 
     GET_MENU_LIST, 
     POST_PRODUCT 
@@ -24,6 +25,13 @@ export const getFullListMenu = () => {
         }
     }
 };
+
+export const changeFilterMenu = (active) => {
+    return {
+        type: FILTER_MENU,
+        activeFilter: active
+    }
+}
 
 export const getBasketList = () => {
     return async dispatch => {
@@ -52,7 +60,7 @@ export const postBasketProduct = (elem) => {
             category: elem.category,
             quantity: elem.quantity
         }
-        const res = await fetch(URL_BASKET, {
+        await fetch(URL_BASKET, {
             method: 'POST',
             body: JSON.stringify({...data}),
             headers: {
@@ -87,21 +95,6 @@ export const removeProductFromBasket = (basket, id) => {
 
 export const changeQuantityOrder = (basket, elem, action) => {
     return async dispatch => {
-        let filtered = basket.map(item => {
-            if (item.id === elem.id) {
-                return {
-                    photo: item.photo,
-                    title: item.title,
-                    descr: item.descr,
-                    price: item.price,
-                    id: item.id,
-                    category: item.category,
-                    quantity: action ? +item.quantity + 1 : item.quantity - 1
-                }
-            }
-            return item;
-        })
-
         let data = {
             photo: elem.photo,
             title: elem.title,
@@ -111,6 +104,13 @@ export const changeQuantityOrder = (basket, elem, action) => {
             category: elem.category,
             quantity: action ? +elem.quantity + 1 : elem.quantity - 1
         }
+
+        let filtered = basket.map(item => {
+            if (item.id === elem.id) {
+                return {...data}
+            }
+            return item;
+        })
 
         const res = await fetch(`${URL_BASKET}/${elem.id}`, {
             method: 'PUT',

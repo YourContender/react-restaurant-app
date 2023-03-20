@@ -9,6 +9,7 @@ const Menu = () => {
     const [fragmentList, setFragmentList] = useState([]);
     const [filter, setFilter] = useState('all');
     const { menu } = useSelector(elem => elem.menu);
+ 
     const dispatch = useDispatch();
 
     useEffect(() => {

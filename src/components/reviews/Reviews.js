@@ -4,23 +4,33 @@ import { faAngleRight, faAngleLeft } from '@fortawesome/free-solid-svg-icons';
 import { reviews } from '../../data';
 import bg from '../../img/01.gif';
 import './Reviews.scss';
+import { Slider } from '../slider/Slider';
 
 function Reviews() {
-    const [count, setCount] = useState(1);
+    const data = reviews.map(item => {  
+        return (
+            <div className="reviews_page" key={item.id}>
+                <div className="reviews_user">
+                    <div>
+                        <img src={item.photo} alt="review" />
+                    </div>
+                    <div>
+                        <h3>{item.name}</h3>
+                        <span>{item.city}</span>
+                    </div>
+                </div>
 
-    const incDecCalc = () => {
-        if (count > reviews.length - 1) {
-            return setCount(1);
-        } else {
-            return setCount(count + 1);
+                <div className="reviews_line"></div>
+                
+                <div className="reviews_descr">
+                    <span>{item.descr}</span>
+                </div>
+            </div>
+            )
         }
+    );
 
-        if(count === 1) {
-            return setCount(reviews.length)
-        } else {
-            return setCount(count - 1)
-        }
-    }
+    console.log('data', data)
     
     return (
         <div className="reviews">
@@ -39,45 +49,9 @@ function Reviews() {
                 </div>
             </div>
 
-            <div className="reviews_slider">
-                <div className="reviews_slider_pages">
-                    <button 
-                        className="reviews_slider_pages_left"
-                        onClick={() => incDecCalc()}
-                    >
-                        <FontAwesomeIcon icon={faAngleLeft} />
-                    </button>
-                        {reviews.map(item => {  
-                            if (item.id === count) {
-                                return (
-                                    <div className="reviews_page" key={item.id}>
-                                        <div className="reviews_user">
-                                            <div>
-                                                <img src={item.photo} alt="review" />
-                                            </div>
-                                            <div>
-                                                <h3>{item.name}</h3>
-                                                <span>{item.city}</span>
-                                            </div>
-                                        </div>
-        
-                                        <div className="reviews_line"></div>
-                                        
-                                        <div className="reviews_descr">
-                                            <span>{item.descr}</span>
-                                        </div>
-                                    </div>
-                                )
-                            }
-                        })}
-                    <button
-                        className="reviews_slider_pages_right" 
-                        onClick={() => incDecCalc()}
-                    >
-                        <FontAwesomeIcon icon={faAngleRight} />
-                    </button>
-                </div>
-            </div>
+            <Slider>
+                {data}
+            </Slider>
 
             <div className="reviews_bg">
                 <img src={bg} alt="background image" />

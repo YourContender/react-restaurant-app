@@ -10,7 +10,6 @@ const initialState = {
 };
 
 const basketReducer = (state = initialState, action) => {
-    console.log('basket reducer >>>>', action)
     switch (action.type) {
         case GET_BASKET:
             return {

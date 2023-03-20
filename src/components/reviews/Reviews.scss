@@ -5,38 +5,10 @@
     padding: 0 10px;
     &_page {
         width: 600px;
-        margin-left: 20px;
+        margin-left: -5px;
         background-color: #343942;
         border-radius: 5px;
         transition: 4s ease;
-    }
-    &_slider {
-        // width: 500px;
-        margin-left: 20px;
-        margin-top: 40px;
-        &_pages {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            button {
-                width: 90px;
-                height: 60px;
-                font-size: 72px;
-                background: none;
-                margin-bottom: 20px;
-                border: none;
-                color: #797E89;
-                &:hover {
-                    color: #fff;
-                }
-            }
-            &_left {
-                margin-right: 50px;
-            }
-            &_right {
-                margin-left: 50px;
-            }
-        }
     }
     &_first {
         margin-left: 0;
