@@ -138,3 +138,30 @@
         }
     }
 }
+
+@media (max-width: 991px) {
+    .offers {
+        width: 991px;
+        &_sale {
+            width: 425px;
+            height: 325px;
+            &_item {
+                h2 {
+                    font-size: 25px;
+                    line-height: 33px;
+                }
+                p {
+                    font-size: 18px;
+                }
+            }
+            &_stock {
+                margin-bottom: 8px;
+            }
+            &_img {
+                img {
+                    width: 214px;
+                }
+            }
+        }
+    }
+}

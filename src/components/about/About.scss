@@ -156,3 +156,18 @@
         }
     }
 }
+
+@media (max-width: 991px) {
+    .about {
+        width: 991px;
+        margin-left: 0;
+        &_map {
+            width: 991px;
+        }
+        &_image {
+            img {
+                width: 565px;
+            }
+        }
+    }
+}

@@ -123,3 +123,16 @@
         }
     }
 }
+
+@media (max-width: 991px) {
+    .reviews {
+        width: 991px;
+        margin-left: 0;
+        &_bg {
+            img {
+                width: 90%;
+                height: 570px;
+            }
+        }
+    }
+}

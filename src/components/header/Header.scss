@@ -49,3 +49,10 @@
         width: 1200px;
     }
 }
+
+@media (max-width: 991px) {
+    .header {
+        width: 991px;
+        margin-left: 0;
+    }
+}

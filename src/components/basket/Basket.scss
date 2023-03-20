@@ -259,3 +259,46 @@
         }
     }
 }
+
+@media (max-width: 991px) {
+    .basket {
+        &_order {
+            margin-right: 5px;
+            width: 30%;
+        }
+        &_products {
+            margin-left: 20px;
+            &_list {
+                width: 520px;
+                &_price {
+                    margin-right: 15px;
+                }
+                &_quantity {
+                    margin-right: 22px;
+                    &_left, &_right {
+                        width: 16px;
+                        height: 36px;
+                    }
+                    h2 {
+                        margin-left: 20px;
+                    }
+                }
+                &_title {
+                    margin-right: 0;
+                    h3 {
+                        font-size: 14px;
+                    }
+                    span {
+                        display: none;
+                    }
+                }
+                &_logo {
+                    img {
+                        width: 100px;
+                        height: 100px;
+                    }
+                }
+            }
+        }
+    }
+}

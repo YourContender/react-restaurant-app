@@ -52,3 +52,15 @@
         width: 1200px;
     }
 }
+
+@media (max-width: 991px) {
+    .nav {
+        width: 991px;
+        margin-left: 0;
+        &_menu {
+            a {
+                font-size: 20px;
+            }
+        }
+    }
+}

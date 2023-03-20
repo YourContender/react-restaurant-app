@@ -76,12 +76,35 @@
 
 @media (max-width: 1200px) {
     .features {
-        padding: 0 30px;
+        padding: 0 20px;
         &_block {
             width: 150px;
             height: 150px;
             span {
                 font-size: 15px;
+            }
+        }
+    }
+}
+
+@media (max-width: 991px) {
+    .features {
+        width: 991px;
+        margin-left: 0;
+        padding: 0;
+        &_services {
+            padding-left: 10px;
+        }
+        &_blocks {
+            width: 991px;
+        }
+        &_descr {
+            width: 300px;
+            h2 {
+                font-size: 30px;
+            }
+            span {
+                font-size: 17px;
             }
         }
     }

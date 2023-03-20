@@ -144,3 +144,39 @@
         }
     }
 }
+
+@media (max-width: 991px) {
+    .footer {
+        width: 991px;
+        margin-left: 0;
+        &_author {
+            padding-left: 10px;
+        }
+        &_time {
+            span {
+                font-size: 16px;
+                padding-right: 40px;
+            }
+        }
+        &_input {
+            input {
+                width: 170px;
+            }
+            button {
+                width: 95px;
+                font-size: 12px;
+            }
+        }
+        &_contact {
+            h2 {
+                font-size: 15px;
+            }
+            span {
+                font-size: 18px;
+            }
+            p {
+                font-size: 18px;
+            }
+        }
+    }
+}
