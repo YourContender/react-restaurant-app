@@ -73,3 +73,16 @@
         }
     }
 }
+
+@media (max-width: 1200px) {
+    .features {
+        padding: 0 30px;
+        &_block {
+            width: 150px;
+            height: 150px;
+            span {
+                font-size: 15px;
+            }
+        }
+    }
+}

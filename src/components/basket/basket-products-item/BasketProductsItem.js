@@ -36,7 +36,7 @@ const BasketProductsItem = ({
                             </div>
 
                             <div className="basket_products_list_quantity">
-                                <div className='test'>
+                                <div className='basket_products_list_quantity_left'>
                                     <button 
                                         onClick={() => incDecCalc(item)}
                                     >
@@ -50,7 +50,7 @@ const BasketProductsItem = ({
                                     <h2>{item.quantity}</h2>
                                 </div>
                                 
-                                <div className='test'>
+                                <div className='basket_products_list_quantity_right'>
                                     <button 
                                         onClick={() => incDecCalc(item, 'plus')}
                                     >

@@ -43,3 +43,9 @@
 .modal {
     position: absolute;
 }
+
+@media (max-width: 1200px) {
+    .header {
+        width: 1200px;
+    }
+}

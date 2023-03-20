@@ -216,3 +216,46 @@
     width: 700px;
     top: 30%;
 }
+
+@media (max-width: 1200px) {
+    .basket {
+        &_order {
+            &_promo {
+                input {
+                    width: 240px;
+                }
+                button {
+                    width: 235px;
+                }
+            }
+        }
+        &_products {
+            &_list {
+                &_quantity {
+                    &_left, &_right {
+                        width: 16px;
+                        height: 36px;
+                    }
+                    h2 {
+                        margin-left: 20px;
+                    }
+                }
+                &_title {
+                    width: 42%;
+                    h3 {
+                        font-size: 16px;
+                    }
+                    span {
+                        font-size: 14px;
+                    }
+                }
+                &_logo {
+                    img {
+                        width: 125px;
+                        height: 125px;
+                    }
+                }
+            }
+        }
+    }
+}

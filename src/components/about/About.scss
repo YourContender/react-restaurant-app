@@ -129,3 +129,30 @@
         }
     }
 }
+
+@media (max-width: 1200px) {
+    .about {
+        width: 1200px;
+        &_map {
+            width: 1200px;
+        }
+        &_descr {
+            span {
+                font-size: 17px;
+            }
+            h2 {
+                font-size: 30px;
+                line-height: 25px;
+            }
+            h3 {
+                font-size: 25px;
+                line-height: 20px;
+            }
+        }
+        &_sing {
+            img {
+                width: 155px;
+            }
+        }
+    }
+}

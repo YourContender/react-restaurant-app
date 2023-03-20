@@ -117,3 +117,24 @@
         }
     }
 }
+
+
+@media (max-width: 1200px) {
+    .offers {
+        width: 1200px;
+        &_sale {
+            width: 540px;
+            height: 345px;
+            margin-left: 25px;
+            &_stock {
+                margin-bottom: 35px;
+            }
+            &_item {
+                h2 {
+                    font-size: 30px;
+                    line-height: 33px;
+                }
+            }
+        }
+    }
+}

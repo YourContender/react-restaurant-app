@@ -134,3 +134,13 @@
         }
     }
 }
+
+@media (max-width: 1200px) {
+    .footer {
+        &_input {
+            input {
+                width: 300px;
+            }
+        }
+    }
+}
