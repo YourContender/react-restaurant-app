@@ -1,6 +1,7 @@
 import logo from '../../img/IMAGE.png';
 import { Link } from 'react-router-dom';
 import './Header.scss';
+import BurgerMenu from '../nav/burger-menu/BurgerMenu';
 
 const Header = () => {
     return (
@@ -19,6 +20,8 @@ const Header = () => {
                         <button>Reservation</button>
                     </Link>
                 </div>
+
+                <BurgerMenu />
             </div>
         </div>
     )

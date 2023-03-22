@@ -13,7 +13,7 @@ const Footer = () => {
                     <div>
                         <h1>#TheTastEat</h1>
                     </div>
-                    <div>
+                    <div className="footer_inner_logo">
                         <img src={logo} alt="logo" />
                     </div>
 

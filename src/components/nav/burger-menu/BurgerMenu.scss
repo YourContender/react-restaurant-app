@@ -1,0 +1,21 @@
+.burger_menu {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .burger {
+        display: flex;
+        justify-content: flex-end;
+        width: 768px;
+        &_menu {
+            display: block;
+            padding: 20px 17px 15px 0px;
+            &_line {
+                width: 50px;
+                height: 2px;
+                margin-bottom: 7px;
+                background-color: #fff;
+            }
+        }
+    }
+}

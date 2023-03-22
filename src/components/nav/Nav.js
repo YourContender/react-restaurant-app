@@ -1,28 +1,12 @@
-import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
 import inst from '../../img/icons/inst.png';
 import fb from '../../img/icons/fb.png';
 import tw from '../../img/icons/tw.png';
 import pt from '../../img/icons/pt.png';
 import './Nav.scss';
+import BurgerMenu from './burger-menu/BurgerMenu';
 
 const Nav = () => {
-    const { basket } = useSelector(state => state);
-
-    // const displayQuantityProductsOrder = () => {
-    //     return (
-    //         <span>
-    //             {basket.length >= 1 && 'x' + basket.length}
-    //         </span>
-    //     )
-    // }
-
-    useEffect(() => {
-        // displayQuantityProductsOrder();
-        console.log('basket: ', basket)
-    }, [basket])
-
     return (
         <div className='nav'>
             <div className='nav_container'>

@@ -64,3 +64,12 @@
         }
     }
 }
+
+@media (max-width: 768px) {
+    .nav {
+        width: 768px;
+        &_container  {
+            display: none;
+        }
+    }
+}

@@ -56,3 +56,21 @@
         margin-left: 0;
     }
 }
+
+@media (max-width: 768px) {
+    .header {
+        width: 768px;
+        &_logo {
+            padding-left: 15px;
+            img {
+                width: 235px;
+            }
+        }
+        &_phone {
+            display: none;
+        }
+        &_reservation {
+            display: none;
+        }
+    }
+}

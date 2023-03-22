@@ -83,3 +83,27 @@
         }
     }
 }
+
+@media (max-width: 768px) {
+    .promo {
+        &_container {
+            width: 768px;
+            margin: 0;
+            margin-top: 40px;
+        }
+        &_image {
+            img {
+                width: 390px;
+            }
+        }
+        &_title {
+            width: 300px;
+            button {
+                width: 210px;
+            } 
+            h1 {
+                font-size: 40px;
+            }
+        }
+    }
+}

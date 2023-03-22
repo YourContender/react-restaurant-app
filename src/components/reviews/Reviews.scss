@@ -136,3 +136,32 @@
         }
     }
 }
+
+@media (max-width: 768px) {
+    .reviews {
+        width: 768px;
+        h2 {
+            font-size: 30px;
+            line-height: 44px;
+        }
+        &_subtitle {
+            span {
+                font-size: 14px;
+            }
+        }
+        &_descr {
+            font-size: 17px;
+        }
+        &_bg {
+            img {
+                width: 90%;
+                height: 500px;
+            }
+        }
+        &_welcome {
+            h1 {
+                font-size: 42px;
+            }
+        }
+    }
+}

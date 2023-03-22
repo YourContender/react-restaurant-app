@@ -5,14 +5,13 @@ import './Slider.scss';
 const PAGE_WIDTH = 600;
 
 export const Slider = ({ children }) => {
-    console.log('children: ', children)
     const [pages, setPages] = useState([]);
     const [offset, setOffset] = useState(0);
 
     const handleLeftArrowClick = () => {
         setOffset((currentOffset) => {
             const newOffset = currentOffset + PAGE_WIDTH;
-            console.log(newOffset);
+            
             return Math.min(newOffset, 0);
         })
     }
@@ -21,7 +20,7 @@ export const Slider = ({ children }) => {
         setOffset((currentOffset) => {
             const newOffset = currentOffset - PAGE_WIDTH;
             const maxOffset = -(PAGE_WIDTH * (pages.length - 1));
-            console.log(newOffset, maxOffset);
+            
             return Math.max(newOffset, maxOffset);
         })
     }

@@ -180,3 +180,31 @@
         }
     }
 }
+
+@media (max-width: 768px) {
+    .footer {
+        &_input {
+            display: none;
+        }
+        &_inner {
+            &_logo {
+                img {
+                    width: 250px;
+                }
+            }
+        }
+        &_time {
+            span {
+                font-size: 12px;
+            }
+        }
+        &_working {
+            h2 {
+                margin-bottom: 16px;
+            }
+        }
+        &_author {
+            font-size: 19px;
+        }
+    }
+}
