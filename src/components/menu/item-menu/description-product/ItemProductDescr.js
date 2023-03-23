@@ -28,7 +28,7 @@ const ItemProductDescr = ({ compound, orderCurrentProduct }) => {
                         (click) ? ( 
                             <div className="test">
                                 <span>
-                                    your order has been added to the cart
+                                    success order
                                 </span>
                             </div>
                         ) : (

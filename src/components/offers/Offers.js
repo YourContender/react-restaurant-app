@@ -14,7 +14,7 @@ const Offers = () => {
                     <h1>Our Offer dishes</h1>
                 </div>
 
-                <div>
+                <div className="offers_titles_descr">
                     <p>
                         Our chefs create melt-in-your-mouth dishes that'll 
                         satiate even the fussiest eaters now the dishes are 

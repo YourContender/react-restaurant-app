@@ -302,3 +302,25 @@
         }
     }
 }
+
+@media (max-width: 768px) {
+    .basket {
+        width: 768px;
+        flex-direction: column;
+        align-items: center;
+        &_order {
+            width: 60%;
+            &_promo {
+                input {
+                    width: 370px;
+                }
+            }
+        }
+        &_products {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+    }
+}

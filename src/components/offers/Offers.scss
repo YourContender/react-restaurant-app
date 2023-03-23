@@ -165,3 +165,36 @@
         }
     }
 }
+
+@media (max-width: 768px) {
+    .offers {
+        width: 768px;
+        &_titles {
+            text-align: center;
+            &_descr {
+                width: 768px;
+            }
+        }
+        &_sale {
+            width: 600px;
+            height: 350px;
+            &_stock {
+                margin-bottom: 30px;
+            }
+            &_item {
+                h2 {
+                    font-size: 35px;
+                }
+            }
+            &_img {
+                img {
+                    width: 280px;
+                }
+            }
+            &_container {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    }
+}

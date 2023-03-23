@@ -171,3 +171,53 @@
         }
     }
 }
+
+@media (max-width: 768px) {
+    .about {
+        width: 768px;
+        &_sing {
+            img {
+                width: 110px;
+            }
+        }
+        &_us {
+            &_left {
+                margin-right: 25px;
+            }
+        }
+        &_descr {
+            h2 {
+                font-size: 22px;
+            }
+            h3 {
+                font-size: 20px;
+            }
+            span {
+                font-size: 13px;
+            }
+        }
+        &_map {
+            width: 768px;
+        }
+        &_image {
+            img {
+                width: 350px;
+            }
+        }
+        &_footer {
+            &_item {
+                h5 {
+                    font-size: 20px;
+                }
+                span {
+                    font-size: 16px;
+                }
+                &_logo {
+                    img {
+                        width: 50px;
+                    }
+                }
+            }
+        }
+    }
+}

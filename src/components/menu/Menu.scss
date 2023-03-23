@@ -248,3 +248,38 @@
         font-size: 14px;
     }
 }
+
+@media (max-width: 768px) {
+    .menu {
+        &_item {
+            &_100 {
+                width: 700px;
+                &_container {
+                    width: 700px;
+                }
+            }
+            &_250 {
+                width: 700px;
+                &_title {
+                    margin-left: 28%;
+                    span {
+                        font-size: 22px;
+                    }
+                    p {
+                        font-size: 17px;
+                    }
+                }
+            }
+        }
+        &_descr {
+            &_item {
+                ul {
+                    margin-left: 29%;
+                    li {
+                        font-size: 20px;
+                    }
+                }
+            }
+        }
+    }
+}
