@@ -165,3 +165,30 @@
         }
     }
 }
+
+@media (max-width: 575px) {
+    .reviews {
+        width: 575px;
+        &_line {
+            display: none;
+        }
+        &_user {
+            img {
+                width: 90px;
+                height: 90px;
+            }
+        }
+        &_descr {
+            width: 370px;
+            margin-top: 35px;
+            padding: 5px 15px;
+        }
+        &_bg {
+            display: none;
+        }
+        &_title {
+            width: 500px;
+            margin: 0 auto;
+        }
+    }
+}

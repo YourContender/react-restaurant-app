@@ -209,3 +209,59 @@
         }
     }
 }
+
+@media (max-width: 575px) {
+    .footer {
+        &_working {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 35px;
+            width: 400px;
+            h2 {
+                width: 250px;
+                font-size: 24px;
+            }
+        }
+        &_contact {
+            h2 {
+                font-size: 24px;
+            }
+            span {
+                font-size: 20px;
+            }
+        }
+        &_time {
+            padding-left: 30px;
+            span {
+                padding-right: 25px;
+                font-size: 15px;
+            }
+        }
+        &_info {
+            flex-direction: column;
+        }
+        &_container {
+            width: 575px;
+        }
+        &_inner {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            &_logo {
+                img {
+                    margin-left: 0px;
+                }
+            }
+        }
+        &_profiles {
+            img {
+                margin: 20px;
+                width: 35px;
+            }
+        }
+        &_author {
+            font-size: 10px;
+        }
+    }
+}

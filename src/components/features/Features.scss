@@ -141,3 +141,25 @@
         }
     }
 }
+
+@media (max-width: 575px) {
+    .features {
+        width: 575px;
+        &_blocks {
+            width: 575px;
+            flex-direction: column;
+            padding: 0;
+        }
+        &_block {
+            width: 185px;
+            height: 140px;
+            margin: 20px 0;
+            span {
+                font-size: 15px;
+            }
+        }
+        &_services {
+            padding-right: 10px;
+        }
+    }
+}

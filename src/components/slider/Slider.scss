@@ -27,3 +27,12 @@
     height: 40px;
     padding: 0 15px;
 }
+
+@media (max-width: 575px) {
+    .main-container {
+        width: 500px;
+    }
+    .window {
+        height: 350px;
+    }
+}

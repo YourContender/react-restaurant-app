@@ -107,3 +107,36 @@
         }
     }
 }
+
+@media (max-width: 575px) {
+    .promo {
+        &_container {
+            width: 575px;
+            flex-direction: column;
+            align-items: center;
+        }
+        &_image {
+            margin-left: 14px;
+            padding-right: 0px;
+        }
+        &_title {
+            width: 420px;
+            text-align: center;
+            padding-bottom: 45px;
+            padding-left: 0px;
+            h1 {
+                font-size: 55px;
+            }
+            span {
+                font-size: 25px;
+                line-height: 35px;
+                letter-spacing: 0.7px;
+            }
+            button {
+                width: 270px;
+                font-size: 30px;
+            } 
+        }
+        
+    }
+}
