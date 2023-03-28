@@ -198,3 +198,23 @@
         }
     }
 }
+
+@media (max-width: 575px) {
+    .offers {
+        width: 575px;
+        &_sale {
+            margin-left: 0;
+            width: 520px;
+            &_item {
+                h2 {
+                    font-size: 28px;
+                }
+            }
+        }
+        &_titles {
+            &_descr {
+                width: 570px;
+            }
+        }
+    }
+}

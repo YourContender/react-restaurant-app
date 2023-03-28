@@ -221,3 +221,61 @@
         }
     }
 }
+
+@media (max-width: 575px) {
+    .about {
+        width: 575px;
+        &_container {
+            flex-direction: column;
+            align-items: center;
+        }
+        &_image {
+            padding: 0;
+            img {
+                width: 420px;
+            }
+        }
+        &_descr {
+            margin-left: 0;
+            margin-top: 40px;
+            width: 450px;
+            h2 {
+                font-size: 42px;
+            }
+            span {
+                font-size: 22px;
+            }
+            h3 {
+                font-size: 40px;
+            }
+        }
+        &_sing {
+            img {
+                width: 190px;
+            }
+        }
+        &_footer {
+            flex-direction: column;
+            align-items: center;
+            &_item {
+                width: 450px;
+                justify-content: start;
+                margin-top: 25px;
+                h5 {
+                    font-size: 35px;
+                }
+                span {
+                    font-size: 20px;
+                }
+                &_logo {
+                    img {
+                        width: 100px;
+                    }
+                }
+            }
+        }
+        &_map {
+            width: 575px;
+        }
+    }
+}

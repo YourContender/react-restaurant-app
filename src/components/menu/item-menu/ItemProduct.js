@@ -42,8 +42,10 @@ const ItemProduct = ({ item }) => {
                     </div>
                     
                     <div className={marginTitle}>
-                        <span>{title}</span><br/>
-                        <p>{descr}</p>
+                        <div>
+                            <span>{title}</span><br/>
+                            <p>{descr}</p>
+                        </div>
                     </div>
 
                     <div className={marginPrice}>

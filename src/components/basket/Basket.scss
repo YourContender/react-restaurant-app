@@ -324,3 +324,12 @@
         }
     }
 }
+
+@media (max-width: 575px) {
+    .basket {
+        width: 575px;
+        &_products {
+            margin-left: 0;
+        }
+    }
+}

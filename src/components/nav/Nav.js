@@ -4,7 +4,6 @@ import fb from '../../img/icons/fb.png';
 import tw from '../../img/icons/tw.png';
 import pt from '../../img/icons/pt.png';
 import './Nav.scss';
-import BurgerMenu from './burger-menu/BurgerMenu';
 
 const Nav = () => {
     return (
